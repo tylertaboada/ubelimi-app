@@ -1,0 +1,13 @@
+<a href="/profile/editprofile">Edit Profile</a>
+<p>{{name}}</p>
+<h1>Welcome {{ user.name }}</h1>
+<span><strong>Name</strong>: {{user.name}}</span>
+<br />
+<span><strong>Email</strong>: {{user.email}}</span>
+{{!--<p><strong>Name:</strong> {{profile.name}}</p>
+<p><strong>Email:</strong> {{profile.email}}</p>--}}
+<div class="moment-list">
+  {{#each moments}}
+    {{> moment}}
+  {{/each}}
+</div>

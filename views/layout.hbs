@@ -9,15 +9,18 @@
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
+      <a href="/">Ubelimi</a>
       {{#if user}}
-        <!-- <a href="/">{{user.name}}'s Profile</a> -->
+      <a href="/profile/userprofile/{{ user._id }}">{{user.name}}'s Profile</a>
+      <a href="/moment/create">Create New Moment</a>
         <form action="/authentication/sign-out" method="POST">
           <button>Sign Out</button>
         </form>
         {{else}}
         <a href="/authentication/sign-in">Sign In</a>
         <a href="/authentication/sign-up">Sign Up</a>
+       <a href="/authentication/sign-up">Create New Moment</a>
+
       {{/if}}
     </nav>
     {{{body}}}

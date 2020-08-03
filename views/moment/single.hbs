@@ -1,0 +1,14 @@
+<h1>Single Moment</h1>
+
+<span>Created by <a href="/profile/{{ moment.creator._id }}">{{ post.creator.name }}</a></span>
+
+<div class="moment">
+  {{#if moment.photo}}
+    <img src="{{moment.photo}}" />
+  {{/if}}
+  <p>{{ moment.content }}</p>
+</div>
+
+<a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
+
+<a href="/moment/delete">Delete this Momory</a>
