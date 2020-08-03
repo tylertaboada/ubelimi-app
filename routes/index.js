@@ -2,7 +2,6 @@
 
 const { Router } = require('express');
 const router = new Router();
-const routeGuard = require('./../middleware/route-guard');
 /*
 const generateRandomToken = length => {
   const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

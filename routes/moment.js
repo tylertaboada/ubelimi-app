@@ -1,9 +1,10 @@
 'use strict';
 
 const { Router } = require('express');
-const passport = require('passport');
+//const passport = require('passport');
 const momentRouter = new Router();
 const routeGuard = require('./../middleware/route-guard');
+const Moment = require('../models/moment');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > ALL MOMENTS
 momentRouter.get('/view-all', (req, res, next) => {
@@ -16,7 +17,18 @@ momentRouter.get('/create', routeGuard, (req, res, next) => {
 });
 
 momentRouter.post('/create', (req, res, next) => {
-  res.render('moment/view-all');
+  const { content } = req.body;
+  console.log(req.session.user);
+  Moment.create({
+    content,
+    creator: req.session.userId
+  })
+    .then(moment => {
+      res.render('moment/view-all');
+    })
+    .catch(error => {
+      next(error);
+    });
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > SINGLE MOMENT
