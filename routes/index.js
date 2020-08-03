@@ -32,4 +32,8 @@ router.get('/private', routeGuard, (req, res, next) => {
   res.render('private');
 });
 
+router.get('/about', (req, res, next) => {
+  res.render('about');
+});
+
 module.exports = router;
