@@ -41,6 +41,7 @@ GET               ' /moment/create '            Moment creation view
 POST              ' /moment/create '            Handle moment creation form submission. Redirect user to Moment home view
 
 GET               ' /moment/:id '               Displays single Moment view
+GET               ' /moment/:id/edit '          Display moment edit view
 POST              ' /moment/:id/edit '          Handle Moment edit form submission. Redirect user to Moment home view
 POST              ' /moment/:id/delete'         Delete single post
 
