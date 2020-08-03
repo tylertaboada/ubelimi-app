@@ -11,7 +11,7 @@ momentRouter.get('/view-all', (req, res, next) => {
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > CREATE MOMENT
-momentRouter.get('/create', (req, res, next) => {
+momentRouter.get('/create', routeGuard, (req, res, next) => {
   res.render('moment/create');
 });
 

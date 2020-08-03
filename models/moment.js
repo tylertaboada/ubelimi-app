@@ -9,40 +9,28 @@ const momentSchema = new mongoose.Schema(
       ref: 'User',
       required: true
     },
-
-    content: {
-      feeling: {
-        type: String,
-        enum: [
-          'Happy',
-          'Amused',
-          'Inspired',
-          'Relaxed',
-          'Loved',
-          'Brave',
-          'Upset',
-          'Anxious'
-        ],
-        required: true
-      },
-      description: {
-        type: String,
-        required: true,
-        minlength: 30,
-        maxlength: 30
-      },
-      learning: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 100
-      },
-      gratitude: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 100
-      }
+    feeling: {
+      type: String,
+      enum: ['Happy', 'Amused', 'Inspired', 'Relaxed', 'Loved', 'Brave', 'Upset', 'Anxious'],
+      required: true
+    },
+    description: {
+      type: String,
+      required: true,
+      minlength: 30,
+      maxlength: 30
+    },
+    learning: {
+      type: String,
+      required: true,
+      minlength: 3,
+      maxlength: 100
+    },
+    gratitude: {
+      type: String,
+      required: true,
+      minlength: 3,
+      maxlength: 100
     },
     photo: {
       type: String,

@@ -28,10 +28,6 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'Hello World!' });
 });
 
-router.get('/profile', routeGuard, (req, res, next) => {
-  res.render('/moment/profile');
-});
-
 router.get('/about', (req, res, next) => {
   res.render('about');
 });

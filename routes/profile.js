@@ -7,7 +7,8 @@ const routeGuard = require('./../middleware/route-guard');
 const User = require('./../models/user');
 const Moment = require('./../models/moment');
 
-profileRouter.get('/:id', routeGuard, (req, res, next) => {
+profileRouter.get('/', routeGuard, (req, res, next) => {
+  console.log('im running');
   res.render('profile/user');
 });
 
