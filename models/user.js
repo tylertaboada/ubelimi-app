@@ -19,16 +19,16 @@ const userSchema = new mongoose.Schema(
     },
     githubToken: {
       type: String
-    },
-    status: {
-      type: String,
-      enum: ['awaiting_confirmation', 'active'],
-      default: 'awaiting_confirmation'
-    },
-    confirmationToken: {
-      type: String,
-      required: true
     }
+    // status: {
+    //   type: String,
+    //   enum: ['awaiting_confirmation', 'active'],
+    //   default: 'awaiting_confirmation'
+    // },
+    // confirmationToken: {
+    //   type: String,
+    //   required: true
+    // }
   },
   {
     timestamps: true

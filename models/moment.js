@@ -28,24 +28,25 @@ const momentSchema = new mongoose.Schema(
       description: {
         type: String,
         required: true,
-        minlength: 3,
-        maxlength: 3
+        minlength: 30,
+        maxlength: 30
       },
       learning: {
         type: String,
         required: true,
         minlength: 3,
-        maxlength: 25
+        maxlength: 100
       },
       gratitude: {
         type: String,
         required: true,
         minlength: 3,
-        maxlength: 25
+        maxlength: 100
       }
     },
     photo: {
-      type: String
+      type: String,
+      required: true
     }
   },
   {
