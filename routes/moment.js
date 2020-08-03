@@ -1,0 +1,42 @@
+'use strict';
+
+const { Router } = require('express');
+const passport = require('passport');
+const momentRouter = new Router();
+const routeGuard = require('./../middleware/route-guard');
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > ALL MOMENTS
+momentRouter.get('/view-all', (req, res, next) => {
+  res.render('moment/view-all');
+});
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > CREATE MOMENT
+momentRouter.get('/create', (req, res, next) => {
+  res.render('moment/create');
+});
+
+momentRouter.post('/create', (req, res, next) => {
+  res.render('moment/view-all');
+});
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > SINGLE MOMENT
+
+momentRouter.get('/moment/:id', (req, res, next) => {
+  res.render('/moment/:id');
+});
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > EDIT / DELETE
+
+momentRouter.get('/moment/:id/edit', (req, res, next) => {
+  res.render('/');
+});
+
+momentRouter.post('/moment/:id/edit', (req, res, next) => {
+  res.render('/');
+});
+
+momentRouter.post('/moment/:id/delete', (req, res, next) => {
+  res.render('/');
+});
+
+module.exports = momentRouter;
