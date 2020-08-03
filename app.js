@@ -14,6 +14,7 @@ const serveFavicon = require('serve-favicon');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const passportConfigure = require('./passport-configuration.js');
 const indexRouter = require('./routes/index');
+const profileRouter = require('./routes/profile');
 const authenticationRouter = require('./routes/authentication');
 
 const app = express();
@@ -26,8 +27,7 @@ app.use(
   sassMiddleware({
     src: join(__dirname, 'public'),
     dest: join(__dirname, 'public'),
-    outputStyle:
-      process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
+    outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
     force: process.env.NODE_ENV === 'development',
     sourceMap: true
   })
