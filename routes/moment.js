@@ -3,50 +3,98 @@
 const multer = require('multer');
 const cloudinary = require('cloudinary');
 const multerStorageCloudinary = require('multer-storage-cloudinary');
-
 const { Router } = require('express');
-//const passport = require('passport');
+const passport = require('passport');
 const momentRouter = new Router();
 const routeGuard = require('./../middleware/route-guard');
 const Moment = require('../models/moment');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > CREATE MOMENT
 momentRouter.get('/create', routeGuard, (req, res, next) => {
+  console.log(req.session);
   res.render('moment/create');
 });
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - >
 const storage = new multerStorageCloudinary.CloudinaryStorage({
   cloudinary: cloudinary.v2
 });
 const upload = multer({ storage });
 
-momentRouter.post('/create', routeGuard, upload.single('photo'), (req, res, next) => {
-  const { feeling, description, learning, gratitude, longitude, latitude } = req.body;
+momentRouter.post(
+  '/create',
+  routeGuard,
+  upload.single('photo'),
+  (req, res, next) => {
+    const {
+      feeling,
+      description,
+      learning,
+      gratitude,
+      latitude,
+      longitude
+    } = req.body;
 
-  let url;
-  if (req.file) {
-    url = req.file.path;
-  }
-  console.log(req.body);
-  Moment.create({
-    creator: req.session.userId,
-    feeling,
-    description,
-    learning,
-    gratitude,
-    photo: url,
-    location: {
-      longitude,
-      latitude
+    let url;
+    if (req.file) {
+      url = req.file.path;
     }
-  })
-    .then(moment => {
-      res.redirect('/');
+
+    console.log(req.body);
+    /*{
+      creator: userId of logged in user,
+      feeling:,
+      description:,
+      learning:,
+      gratitude:,
+      photo:,
+      location: {coordinates: [lat,lng]}
+    }*/
+
+    Moment.create({
+      creator: req.session.passport.user,
+      feeling: feeling,
+      description: description,
+      learning: learning,
+      gratitude: gratitude,
+      photo: url,
+      location: { coordinates: [latitude, longitude] }
     })
-    .catch(error => {
-      next(error);
-    });
-});
+      .then(moment => {
+        res.redirect(`/moment/${moment._id}`);
+      })
+      .catch(error => {
+        next(error);
+      });
+  }
+);
+
+// momentRouter.post(
+//   '/create',
+//   routeGuard,
+//   upload.single('photo'),
+//   (req, res, next) => {
+//     const {
+//       feeling,
+//       description,
+//       learning,
+//       gratitude,
+//       longitude,
+//       latitude
+//     } = req.body;
+//     let url;
+//     if (req.file) {
+//       url = req.file.path;
+//     }
+//     Moment.create({
+//       content: { feeling, description, learning, gratitude },
+//       creator: req.session.passport.user
+//       // photo: url
+//       // location: {
+//       //   longitude,
+//       //   latitude
+//       // }
+//     })
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > ALL MOMENTS
 momentRouter.get('/view-all', (req, res, next) => {
@@ -61,7 +109,7 @@ momentRouter.get('/view-all', (req, res, next) => {
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > SINGLE MOMENT
 
-momentRouter.get('/moment/:id', (req, res, next) => {
+momentRouter.get('/:id', (req, res, next) => {
   const id = req.params.id;
   Moment.findById(id)
     .populate('creator')

@@ -18,7 +18,7 @@ const hbsJsonHelper = require('hbs-json');
 
 const indexRouter = require('./routes/index');
 const profileRouter = require('./routes/profile');
-//const momentRouter = require('./routes/moment');
+const momentRouter = require('./routes/moment');
 const authenticationRouter = require('./routes/authentication');
 const placeRouter = require('./routes/placeRouter');
 
@@ -35,7 +35,8 @@ app.use(
   sassMiddleware({
     src: join(__dirname, 'public'),
     dest: join(__dirname, 'public'),
-    outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
+    outputStyle:
+      process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
     force: process.env.NODE_ENV === 'development',
     sourceMap: true
   })
@@ -72,7 +73,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/profile', profileRouter);
 app.use('/authentication', authenticationRouter);
-//app.use('/moment', momentRouter);
+app.use('/moment', momentRouter);
 app.use('/place', placeRouter);
 
 // Catch missing routes and forward to error handler
