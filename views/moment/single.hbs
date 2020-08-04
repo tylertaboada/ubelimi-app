@@ -10,8 +10,35 @@
   <h3> {{ user.name }} is feeling {{ moment.feeling }}  </h3>
   <p>{{ moment.learning }}</p>
   <p>{{ moment.gratitude }}</p>
+  <p> {{ moment.location.coordinates.[1] }}</p>
+   <p> {{ moment.location.coordinates.[0] }}</p>
 </div>
 
+<div id="map-container"></div>
 <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
 
 <a href="/moment/delete">Delete this Moment</a>
+
+<script>
+  function init () {
+    const mapContainerElement = document.getElementById('map-container');
+    const map = new window.google.maps.Map(mapContainerElement, {
+      center: {
+        lat: 38.75,
+        lng: -9.15
+      },
+      zoom: 11
+    });
+    const longitude = {{ moment.location.coordinates.[0] }};
+    const latitude = {{ moment.location.coordinates.[1] }};
+    const marker = new window.google.maps.Marker({
+      map,
+      position: {
+        lat: latitude,
+        lng: longitude
+      }
+    });
+  }
+</script>
+
+{{> mapscript}}

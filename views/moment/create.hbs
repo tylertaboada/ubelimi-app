@@ -23,6 +23,10 @@
   <label for="gratitude-input">What are you grateful for at this moment?</label>
   <input id="gratitude-input" type="text" placeholder="I am grateful for ...." name="gratitude">
 
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE  --}}
+  <p>Provide an image that captures the moment</p>
+  <input type="file" name="photo">
+
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION  --}}
   <p>Where did this moment happen?</p>
  <label for="latitude-input">Latitude</label>
@@ -30,12 +34,40 @@
   
   <label for="longitude-input">Longitude</label>
   <input id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
-
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE  --}}
-  <p>Provide an image that captures the moment</p>
-  <input type="file" name="photo">
-  
-  
+<div id="map-container"></div>  
   <button>Create Moment</button>
 </form>
+
+<script>
+  function init () {
+    const mapContainerElement = document.getElementById('map-container');
+    const map = new window.google.maps.Map(mapContainerElement, {
+      center: {
+        lat: 38.75,
+        lng: -9.15
+      },
+      zoom: 11
+    });
+    let marker;
+    const latitudeInputElement = document.getElementById('latitude-input');
+    const longitudeInputElement = document.getElementById('longitude-input');
+    map.addListener('click', event => {
+      const latitude = event.latLng.lat();
+      const longitude = event.latLng.lng();
+      if (marker) {
+        marker.setMap(null);
+      }
+      marker = new window.google.maps.Marker({
+        map,
+        position: {
+          lat: latitude,
+          lng: longitude
+        }
+      });
+      latitudeInputElement.value = latitude;
+      longitudeInputElement.value = longitude;
+    });
+  }
+</script>
+
+{{> mapscript}}

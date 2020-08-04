@@ -4,8 +4,7 @@
 
 <a href="/moment/create">Create New Moment</a>
 
-<h2>Map of Moments Placeholder</h2>
-
+<div id="map-container"></div>
 {{> moment}}
 
   {{!-- {{#each moments}}
@@ -19,3 +18,61 @@
     <li>{{ location.coordinates.[0] }}</li>
   </ul>
   {{/each}} --}}
+
+  <h1>{{title}}</h1>
+<p>Have Fun Creating Moments</p>
+
+{{!-- <button id="trigger-location">Locate me!</button> --}}
+
+
+{{#each moments}}
+
+<a href="moment/{{id}}">{{ user.name }} </a> 
+
+{{/each}}
+
+
+<script>
+  function init () {
+    const mapContainerElement = document.getElementById('map-container');
+    const map = new window.google.maps.Map(mapContainerElement, {
+      center: {
+        lat: 38.75,
+        lng: -9.15
+      },
+      zoom: 11
+    });
+    const moments = {{{ json moments }}};
+    for (let moment of moments) {
+      const marker = new window.google.maps.Marker({
+        map,
+        position: {
+          lat: moment.location.coordinates[1],
+          lng: moment.location.coordinates[0]
+        }
+      });
+      marker.addListener('click', () => {
+        const endpoint = `/moment/${ moment._id }`;
+        window.location = endpoint;
+      });
+    }
+  }
+</script>
+
+<script>
+  const triggerLocationButton = document.getElementById('trigger-location');
+  const latitudeInputElement = document.getElementById('latitude-input');
+  const longitudeInputElement = document.getElementById('longitude-input');
+  triggerLocationButton.addEventListener('click', () => {
+    window.navigator.geolocation.getCurrentPosition(position => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      latitudeInputElement.value = latitude;
+      longitudeInputElement.value = longitude;
+    }, error => {
+      console.log(error);
+    })
+  });
+</script>
+
+{{> mapscript}}
