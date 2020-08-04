@@ -1,14 +1,21 @@
-<h1>Do Ubelimi Moments</h1>
-<h1>{{title}}</h1>
+<h1>All Moments, Ubelimi?</h1>
+
 <p>Welcome {{ user.name }}</p>
 
 <a href="/moment/create">Create New Moment</a>
 
 <h2>Map of Moments Placeholder</h2>
 
-<div class="moment-list">
-  {{#each moment}}
-    {{> moment}}
-  {{/each}}
-</div>
+{{> moment}}
 
+  {{!-- {{#each moments}}
+  <ul>
+    <li><img src="{{ photo }}" alt="{{ description }}"></li>
+    <li>{{ feeling }}</li>
+    <li>{{ description }}</li>
+    <li>{{ learning }}</li>
+    <li>{{ gratitude }}</li>
+    <li>{{ location.coordinates.[1] }}</li>
+    <li>{{ location.coordinates.[0] }}</li>
+  </ul>
+  {{/each}} --}}

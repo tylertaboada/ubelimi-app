@@ -1,13 +1,14 @@
-<div class="moment">
-  {{#if moment.photo}}
-    <img src="{{moment.photo}}"/>
-  {{/if}}
-  <h2>{{ moment.description }}</h2>
-  <h3> {{ user.name }} is feeling {{ moment.feeling }}  </h3>
-  <p>{{ moment.learning }}</p>
-  <p>{{ moment.gratitude }}</p>
-</div>
+  {{#each moments}}
+  <ul>
+    <li><img src="{{ photo }}" alt="{{ description }}"></li>
+    <li>{{ feeling }}</li>
+    <li>{{ description }}</li>
+    <li>{{ learning }}</li>
+    <li>{{ gratitude }}</li>
+    <li>{{ location.coordinates.[1] }}</li>
+    <li>{{ location.coordinates.[0] }}</li>
+    <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
+    <a href="/moment/delete">Delete this Moment</a>
+  </ul>
+  {{/each}}
 
-<a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
-
-<a href="/moment/delete">Delete this Moment</a>

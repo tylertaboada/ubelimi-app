@@ -11,11 +11,9 @@ const Moment = require('../models/moment');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > CREATE MOMENT
 momentRouter.get('/create', routeGuard, (req, res, next) => {
-  console.log(req.session);
   res.render('moment/create');
 });
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - >
 const storage = new multerStorageCloudinary.CloudinaryStorage({
   cloudinary: cloudinary.v2
 });
@@ -40,17 +38,6 @@ momentRouter.post(
       url = req.file.path;
     }
 
-    console.log(req.body);
-    /*{
-      creator: userId of logged in user,
-      feeling:,
-      description:,
-      learning:,
-      gratitude:,
-      photo:,
-      location: {coordinates: [lat,lng]}
-    }*/
-
     Moment.create({
       creator: req.session.passport.user,
       feeling: feeling,
@@ -68,33 +55,6 @@ momentRouter.post(
       });
   }
 );
-
-// momentRouter.post(
-//   '/create',
-//   routeGuard,
-//   upload.single('photo'),
-//   (req, res, next) => {
-//     const {
-//       feeling,
-//       description,
-//       learning,
-//       gratitude,
-//       longitude,
-//       latitude
-//     } = req.body;
-//     let url;
-//     if (req.file) {
-//       url = req.file.path;
-//     }
-//     Moment.create({
-//       content: { feeling, description, learning, gratitude },
-//       creator: req.session.passport.user
-//       // photo: url
-//       // location: {
-//       //   longitude,
-//       //   latitude
-//       // }
-//     })
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > ALL MOMENTS
 momentRouter.get('/view-all', (req, res, next) => {
