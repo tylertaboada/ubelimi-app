@@ -32,12 +32,13 @@
       zoom: 11
     });
     const moments = {{{ json moments }}};
+
     for (let moment of moments) {
       const marker = new window.google.maps.Marker({
         map,
         position: {
-          lat: moment.location.coordinates[1],
-          lng: moment.location.coordinates[0]
+          lat: moment.location.coordinates[0],
+          lng: moment.location.coordinates[1]
         }
       });
       marker.addListener('click', () => {
