@@ -3,7 +3,8 @@
 <a href="/profile/edit">Edit Profile</a>
 <a href="/moment/create">Create New Moment</a><br>
 <img src="{{ user.photo }}" alt="profile-pic">
-
+<br>
+<span><strong>Email</strong>: {{user.email}}</span>
 
 {{!-- INSERT DAD JOKE API --}}
 
@@ -13,11 +14,6 @@
     </div>
     <button id="get_joke" class="btn"> Ubelimi? </button>
 </div> --}}
-
-<span><strong>Name</strong>: {{user.name}}</span>
-<span><strong>Email</strong>: {{user.email}}</span>
-
-
 
   {{#each moment}}
 {{> moment}}

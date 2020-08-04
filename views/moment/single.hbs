@@ -1,11 +1,11 @@
 <h1>Single Moment</h1>
 
-<span>Created by <a href="/profile/{{ moment.creator._id }}">{{ post.creator.name }}</a></span>
-
+<span>Created by <a href="/profile/{{ moment.creator._id }}">{{ moment.creator.name }}</a></span>
+<div id="map-container"></div>
 <div class="moment">
   {{#if moment.photo}}
     <img src="{{moment.photo}}"/>
-  {{/if}}
+  {{/if}} 
   <h2>{{ moment.description }}</h2>
   <h3> {{ user.name }} is feeling {{ moment.feeling }}  </h3>
   <p>{{ moment.learning }}</p>
@@ -14,7 +14,7 @@
    <p> {{ moment.location.coordinates.[0] }}</p>
 </div>
 
-<div id="map-container"></div>
+
 <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
 
 <a href="/moment/delete">Delete this Moment</a>
@@ -29,16 +29,16 @@
       },
       zoom: 11
     });
-    const longitude = {{ moment.location.coordinates.[0] }};
-    const latitude = {{ moment.location.coordinates.[1] }};
+  
+  
     const marker = new window.google.maps.Marker({
       map,
       position: {
-        lat: latitude,
-        lng: longitude
+        lat:  {{ moment.location.coordinates.[0] }},
+        lng: {{ moment.location.coordinates.[1] }}
       }
     });
-  }
+  };
 </script>
 
 {{> mapscript}}

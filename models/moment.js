@@ -11,23 +11,14 @@ const momentSchema = new mongoose.Schema(
     },
     feeling: {
       type: String,
-      enum: [
-        'Happy',
-        'Amused',
-        'Inspired',
-        'Relaxed',
-        'Loved',
-        'Brave',
-        'Upset',
-        'Anxious'
-      ]
+      enum: ['Happy', 'Amused', 'Inspired', 'Relaxed', 'Loved', 'Brave', 'Upset', 'Anxious']
       // required: true
     },
     description: {
       type: String,
       // required: true,
       minlength: 10,
-      maxlength: 30
+      maxlength: 100
     },
     learning: {
       type: String,
