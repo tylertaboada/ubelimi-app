@@ -22,7 +22,9 @@ const userSchema = new mongoose.Schema(
     },
     photo: {
       type: String,
-      default: 'https://techsalesgroup.files.wordpress.com/2016/10/ironhack-logo-negro1.jpg'
+      default: 'https://bcassetcdn.com/social/02lfcg91si/preview.png'
+
+      //'https://techsalesgroup.files.wordpress.com/2016/10/ironhack-logo-negro1.jpg'
     }
     // status: {
     //   type: String,
