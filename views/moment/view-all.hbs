@@ -5,7 +5,10 @@
 <a href="/moment/create">Create New Moment</a>
 
 <div id="map-container"></div>
+
+  {{#each moments}}
 {{> moment}}
+  {{/each}}
 
   {{!-- {{#each moments}}
   <ul>
@@ -26,9 +29,7 @@
 
 
 {{#each moments}}
-
 <a href="moment/{{id}}">{{ user.name }} </a> 
-
 {{/each}}
 
 

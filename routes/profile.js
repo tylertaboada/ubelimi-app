@@ -41,7 +41,7 @@ profileRouter.post(
     if (req.file) {
       url = req.file.path;
     }
-    console.log(req.file.path);
+
     User.findByIdAndUpdate(id, { name, email, photo: url })
       .then(() => {
         res.redirect('/profile');

@@ -1,5 +1,5 @@
-  {{#each moments}}
-  <ul>
+<a href="/moment/{{_id}}">Explore Moment </a>
+<ul>
     <li><img src="{{ photo }}" alt="{{ description }}"></li>
     <li>{{ feeling }}</li>
     <li>{{ description }}</li>
@@ -7,8 +7,7 @@
     <li>{{ gratitude }}</li>
     <li>{{ location.coordinates.[1] }}</li>
     <li>{{ location.coordinates.[0] }}</li>
-    <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
+    <a href="/moment/{{ _id }}/edit">Edit Moment</a>
     <a href="/moment/delete">Delete this Moment</a>
-  </ul>
-  {{/each}}
+</ul>
 

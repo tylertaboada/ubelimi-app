@@ -17,9 +17,13 @@
 <span><strong>Name</strong>: {{user.name}}</span>
 <span><strong>Email</strong>: {{user.email}}</span>
 
-{{!-- {{> moment}} --}}
+
 
   {{#each moment}}
+{{> moment}}
+  {{/each}}
+
+  {{!-- {{#each moment}}
   <ul>
     <li><img src="{{ photo }}" alt="{{ description }}"></li>
     <li>{{ feeling }}</li>
@@ -31,7 +35,7 @@
     <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
     <a href="/moment/delete">Delete this Moment</a>
   </ul>
-  {{/each}}
+  {{/each}} --}}
 
 
 
