@@ -13,15 +13,22 @@ const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const passportConfigure = require('./passport-configuration.js');
+const hbs = require('hbs');
+const hbsJsonHelper = require('hbs-json');
+
 const indexRouter = require('./routes/index');
 const profileRouter = require('./routes/profile');
-const momentRouter = require('./routes/moment');
+//const momentRouter = require('./routes/moment');
 const authenticationRouter = require('./routes/authentication');
+const placeRouter = require('./routes/placeRouter');
 
 const app = express();
 
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+hbs.registerPartials(join(__dirname, 'views/partials'));
+hbs.registerHelper('json', hbsJsonHelper);
 
 app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
 app.use(
@@ -57,11 +64,16 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bindUserToViewLocals);
+app.use((req, res, next) => {
+  res.locals.environmentVariables = process.env;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/profile', profileRouter);
 app.use('/authentication', authenticationRouter);
-app.use('/moment', momentRouter);
+//app.use('/moment', momentRouter);
+app.use('/place', placeRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

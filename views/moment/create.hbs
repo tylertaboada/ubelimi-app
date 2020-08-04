@@ -1,9 +1,43 @@
 <h1>Create a Moment</h1>
 
+
+
 <form method="POST" enctype="multipart/form-data">
-  <textarea name="moment" placeholder="The content for your post..."></textarea>
+ <label for="creator">Created by</label>
+  <input type="text" id="creator" name="creator" placeholder="Your Name" />
 
+  <select name="feeling">
+  <option>Feeling</option>
+  <option type="text"  value="Amused"> Amused </option>
+ <option type="text"  value="Anxious"> Anxious </option>
+ <option type="text"  value="Brave">  Brave</option>
+ <option type="text"  value="Happy">  Happy</option>
+ <option type="text"  value="Inspired"> Inspired </option>
+ <option type="text"  value="Loved"> Loved </option>
+ <option type="text"  value="Relaxed">  Relaxed</option>
+ <option type="text"  value="Upset">  Upset</option>
+</select>
+
+<label for="description-input">What's happening at this moment?</label>
+  <input id="description-input" type="text" placeholder="Describe this moment!" name="description">
+
+  <label for="learning-input">What did you learn from this moment? </label>
+  <input id="learning-input" type="text" placeholder="i learned to dust off my ass and keep moving...." name="learning">
+
+  <label for="gratitude-input">What are you grateful for at this moment?</label>
+  <input id="gratitude-input" type="text" placeholder="I am grateful for ...." name="gratitude">
+
+
+
+
+ <label for="latitude-input">Latitude</label>
+  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
+  
+  <p>Where?</p>
+  <label for="longitude-input">Longitude</label>
+  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
+<p>Share the moment!</p>
   <input type="file" name="photo">
-
+  
   <button>Create Moment</button>
 </form>

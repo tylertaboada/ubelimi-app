@@ -35,6 +35,19 @@ const momentSchema = new mongoose.Schema(
     photo: {
       type: String,
       required: true
+    },
+    location: {
+      coordinates: [
+        {
+          type: Number,
+          min: -180,
+          max: 180
+        }
+      ],
+      type: {
+        type: String,
+        default: 'Point'
+      }
     }
   },
   {

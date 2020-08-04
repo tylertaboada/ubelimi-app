@@ -61,6 +61,7 @@ form {
 
 input,
 textarea,
+select,
 button,
 .btn {
   padding: 1em;
@@ -83,4 +84,11 @@ textarea {
   font: inherit;
   color: inherit;
   background-color: transparent;
+}
+
+#map-container {
+  height: 50vh;
+  width: 50vw;
+  display: block;
+  margin: 0 auto;
 }
