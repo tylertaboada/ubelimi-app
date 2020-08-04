@@ -98,22 +98,27 @@ momentRouter.get('/:id/edit', (req, res, next) => {
 momentRouter.post('/:id/edit', (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
+  console.log(data);
 
   Moment.findByIdAndUpdate(id, {
     feeling: data.feeling,
     description: data.description,
     learning: data.learning,
     gratitude: data.gratitude,
-    photo: data.photo,
-    latitude: data.coordinates.latitude[0],
-    longitude: data.coordinates.longitude[1]
-  }).then(() => {
-    res.render('/');
-  });
+    photo: data.photo
+    // latitude: data.coordinates.latitude[0],
+    // longitude: data.coordinates.longitude[1]
+  })
+    .then(() => {
+      res.render('/');
+    })
+    .catch(error => {
+      next(error);
+    });
 });
 
-momentRouter.post('/:id/delete', (req, res, next) => {
-  res.render('/');
-});
+// momentRouter.post('/:id/delete', (req, res, next) => {
+//   res.render('/');
+// });
 
 module.exports = momentRouter;

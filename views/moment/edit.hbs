@@ -3,7 +3,7 @@
 <form method="POST" enctype="multipart/form-data">
 
 <select name="feeling">
- <option>How are you feeling in this moment?</option>
+ <option>{{ moment.feeling }}</option>
  <option type="text"  value="Amused"> Amused </option>
  <option type="text"  value="Anxious"> Anxious </option>
  <option type="text"  value="Brave">  Brave</option>
@@ -35,6 +35,6 @@
   <label for="longitude-input">Longitude</label>
   <input id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
 <div id="map-container"></div>  
-  <button>Create Moment</button>
+  <button>Edit Moment</button>
 </form>
 <a href="/moments">View All Moments</a>
