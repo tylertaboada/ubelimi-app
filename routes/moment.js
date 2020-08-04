@@ -83,15 +83,36 @@ momentRouter.get('/:id', (req, res, next) => {
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > EDIT / DELETE
 
-momentRouter.get('/moment/:id/edit', (req, res, next) => {
-  res.render('/');
+momentRouter.get('/:id/edit', (req, res, next) => {
+  const id = req.params.id;
+
+  Moment.findById(id)
+    .then(moment => {
+      res.render('moment/edit', { moment });
+    })
+    .catch(error => {
+      next(error);
+    });
 });
 
-momentRouter.post('/moment/:id/edit', (req, res, next) => {
-  res.render('/');
+momentRouter.post('/:id/edit', (req, res, next) => {
+  const id = req.params.id;
+  const data = req.body;
+
+  Moment.findByIdAndUpdate(id, {
+    feeling: data.feeling,
+    description: data.description,
+    learning: data.learning,
+    gratitude: data.gratitude,
+    photo: data.photo,
+    latitude: data.coordinates.latitude[0],
+    longitude: data.coordinates.longitude[1]
+  }).then(() => {
+    res.render('/');
+  });
 });
 
-momentRouter.post('/moment/:id/delete', (req, res, next) => {
+momentRouter.post('/:id/delete', (req, res, next) => {
   res.render('/');
 });
 
