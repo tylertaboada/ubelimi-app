@@ -21,7 +21,8 @@ const userSchema = new mongoose.Schema(
       type: String
     },
     photo: {
-      type: String
+      type: String,
+      default: 'https://techsalesgroup.files.wordpress.com/2016/10/ironhack-logo-negro1.jpg'
     }
     // status: {
     //   type: String,
