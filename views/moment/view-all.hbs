@@ -9,11 +9,9 @@
 <button id="trigger-location">Locate me!</button>
 <div id="map-container"></div>
 
-  {{#each moments}}
+{{#each moments}}
 {{> moment}}
-  {{/each}}
-
-
+{{/each}}
 
 {{#each moments}}
 <a href="moment/{{id}}">{{ user.name }} </a> 
