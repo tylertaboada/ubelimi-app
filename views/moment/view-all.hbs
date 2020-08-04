@@ -1,31 +1,18 @@
-<h1>All Moments, Ubelimi?</h1>
+<h1>Do Ubelimi Moments!!!</h1>
 
 <p>Welcome {{ user.name }}</p>
+  <h1>{{title}}</h1>
+<p>Have Fun Creating Moments</p>
 
 <a href="/moment/create">Create New Moment</a>
-
+<br>
+<button id="trigger-location">Locate me!</button>
 <div id="map-container"></div>
 
   {{#each moments}}
 {{> moment}}
   {{/each}}
 
-  {{!-- {{#each moments}}
-  <ul>
-    <li><img src="{{ photo }}" alt="{{ description }}"></li>
-    <li>{{ feeling }}</li>
-    <li>{{ description }}</li>
-    <li>{{ learning }}</li>
-    <li>{{ gratitude }}</li>
-    <li>{{ location.coordinates.[1] }}</li>
-    <li>{{ location.coordinates.[0] }}</li>
-  </ul>
-  {{/each}} --}}
-
-  <h1>{{title}}</h1>
-<p>Have Fun Creating Moments</p>
-
-{{!-- <button id="trigger-location">Locate me!</button> --}}
 
 
 {{#each moments}}
@@ -34,6 +21,7 @@
 
 
 <script>
+  
   function init () {
     const mapContainerElement = document.getElementById('map-container');
     const map = new window.google.maps.Map(mapContainerElement, {
