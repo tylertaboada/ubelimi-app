@@ -4,12 +4,7 @@
 
 
 <h1>Welcome {{ user.name }}</h1>
-<form method="POST" enctype="multipart/form-data" id="profile">
-
-  <input type="file" name="photo" id="profile">
-
-  <button id="profile">Profile Pic</button>
-</form>
+<img src="{{ user.photo }}" alt="profile-pic">
 <span><strong>Name</strong>: {{user.name}}</span>
 <br />
 <span><strong>Email</strong>: {{user.email}}</span>

@@ -1,6 +1,10 @@
 <h1>Edit Profile!</h1>
 
-<form method="POST">
+
+<form method="POST" enctype="multipart/form-data" id="profile" >
+<input type="file" name="photo" id="profile"
+   value="{{ user.photo }}">
+
   <label for="input-name">First and Last Name</label>
   <input
     id="input-name"

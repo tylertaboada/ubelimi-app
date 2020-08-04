@@ -19,6 +19,9 @@ const userSchema = new mongoose.Schema(
     },
     githubToken: {
       type: String
+    },
+    photo: {
+      type: String
     }
     // status: {
     //   type: String,
