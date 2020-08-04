@@ -1,19 +1,22 @@
-<h1>Edit Profile!</h1>
+<h1>Edit {{ user.name }}'s Profile</h1>
 
-
+{{!-- - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - -  UPLOAD IMAGE  - - --}}
 <form method="POST" enctype="multipart/form-data" id="profile" >
 <input type="file" name="photo" id="profile"
    value="{{ user.photo }}">
 
+
+{{!-- - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - -  FIRST/LAST NAME - - --}}
   <label for="input-name">First and Last Name</label>
   <input
     id="input-name"
     type="text"
     placeholder="First and Last Name"
     name="name"
-    value="{{ user.name }}"
-  > 
+    value="{{ user.name }}" > 
 
+
+{{!-- - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - EMAIL  - - --}}
   <label for="input-email">Email</label>
   <input
     id="input-email"

@@ -20,7 +20,6 @@ const indexRouter = require('./routes/index');
 const profileRouter = require('./routes/profile');
 const momentRouter = require('./routes/moment');
 const authenticationRouter = require('./routes/authentication');
-const placeRouter = require('./routes/placeRouter');
 
 const app = express();
 
@@ -74,7 +73,6 @@ app.use('/', indexRouter);
 app.use('/profile', profileRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/moment', momentRouter);
-app.use('/place', placeRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

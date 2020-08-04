@@ -9,10 +9,16 @@ const profileRouter = new Router();
 const routeGuard = require('./../middleware/route-guard');
 
 const User = require('./../models/user');
+const Moment = require('../models/moment');
 
 profileRouter.get('/', routeGuard, (req, res, next) => {
-  console.log('im running');
-  res.render('profile/user');
+  Moment.find()
+    .then(moment => {
+      res.render('profile/user', { moment });
+    })
+    .catch(error => {
+      next(error);
+    });
 });
 
 const storage = new multerStorageCloudinary.CloudinaryStorage({
@@ -24,24 +30,26 @@ profileRouter.get('/edit', routeGuard, (req, res, next) => {
   res.render('profile/edit');
 });
 
-profileRouter.post('/edit', routeGuard, upload.single('photo'), (req, res, next) => {
-  const id = req.session.passport.user;
-  //console.log('is this working');
-  // console.log(req.session);
-  const { name, email } = req.body;
-  let url;
-  if (req.file) {
-    url = req.file.path;
+profileRouter.post(
+  '/edit',
+  routeGuard,
+  upload.single('photo'),
+  (req, res, next) => {
+    const id = req.session.passport.user;
+    const { name, email } = req.body;
+    let url;
+    if (req.file) {
+      url = req.file.path;
+    }
+    console.log(req.file.path);
+    User.findByIdAndUpdate(id, { name, email, photo: url })
+      .then(() => {
+        res.redirect('/profile');
+      })
+      .catch(error => {
+        next(error);
+      });
   }
-  console.log(req.file.path);
-  //console.log(req.body);
-  User.findByIdAndUpdate(id, { name, email, photo: url })
-    .then(() => {
-      res.redirect('/profile');
-    })
-    .catch(error => {
-      next(error);
-    });
-});
+);
 
 module.exports = profileRouter;

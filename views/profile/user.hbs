@@ -1,25 +1,38 @@
-<nav>
-   <a href="/place/create">Create New Place</a>
-   <br>
-   <a href="/profile/edit">Edit Profile</a>
-<br>
- <a href="/moment/create">Create New Moment</a>
-</nav>
-
-
 <h1>Welcome {{ user.name }}</h1>
+
+<a href="/profile/edit">Edit Profile</a>
+<a href="/moment/create">Create New Moment</a><br>
 <img src="{{ user.photo }}" alt="profile-pic">
-<br>
+
+
+{{!-- INSERT DAD JOKE API --}}
+
+{{!-- <div class="dad-joke">
+    <div id="joke" class="joke">
+        // Joke goes here
+    </div>
+    <button id="get_joke" class="btn"> Ubelimi? </button>
+</div> --}}
+
 <span><strong>Name</strong>: {{user.name}}</span>
-<br />
 <span><strong>Email</strong>: {{user.email}}</span>
-{{!--<p><strong>Name:</strong> {{profile.name}}</p>
-<p><strong>Email:</strong> {{profile.email}}</p>--}}
-<div class="moment-list">
-  {{#each moments}}
-    {{> moment}}
+
+{{!-- {{> moment}} --}}
+
+  {{#each moment}}
+  <ul>
+    <li><img src="{{ photo }}" alt="{{ description }}"></li>
+    <li>{{ feeling }}</li>
+    <li>{{ description }}</li>
+    <li>{{ learning }}</li>
+    <li>{{ gratitude }}</li>
+    <li>{{ location.coordinates.[1] }}</li>
+    <li>{{ location.coordinates.[0] }}</li>
+    <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
+    <a href="/moment/delete">Delete this Moment</a>
+  </ul>
   {{/each}}
-</div>
+
 
 
 
