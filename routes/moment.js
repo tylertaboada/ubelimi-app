@@ -119,7 +119,7 @@ momentRouter.post('/:id/edit', (req, res, next) => {
     longitude: data.coordinates.longitude[1]
   })
     .then(() => {
-      res.render('/');
+      res.redirect('/');
     })
     .catch(error => {
       next(error);

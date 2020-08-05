@@ -18,23 +18,9 @@
 <span><strong>Email</strong>: {{user.email}}</span>
 
 
-  {{#each moment}}
+{{#each moment}}
 {{> moment}}
-  {{/each}}
-
-  {{!-- {{#each moment}}
-  <ul>
-    <li><img src="{{ photo }}" alt="{{ description }}"></li>
-    <li>{{ feeling }}</li>
-    <li>{{ description }}</li>
-    <li>{{ learning }}</li>
-    <li>{{ gratitude }}</li>
-    <li>{{ location.coordinates.[1] }}</li>
-    <li>{{ location.coordinates.[0] }}</li>
-    <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
-    <a href="/moment/delete">Delete this Moment</a>
-  </ul>
-  {{/each}} --}}
+{{/each}}
 
   
 <script>
