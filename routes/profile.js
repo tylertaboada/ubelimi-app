@@ -11,6 +11,7 @@ const routeGuard = require('./../middleware/route-guard');
 const User = require('./../models/user');
 const Moment = require('../models/moment');
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOGIN PAGE???????
 profileRouter.get('/', routeGuard, (req, res, next) => {
   const isMyOwnMyProfile = true;
   Moment.find({ creator: req.session.passport.user })
@@ -48,6 +49,7 @@ profileRouter.post('/edit', routeGuard, upload.single('photo'), (req, res, next)
       next(error);
     });
 });
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > VIEW PROFILE
 
 profileRouter.get('/:id', routeGuard, (req, res, next) => {
   let isMyOwnMyProfile = false;

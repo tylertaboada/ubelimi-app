@@ -1,6 +1,8 @@
-<h1>Create a Moment</h1>
+<h1>🚀 Create a moment, make history.</h1>
 
 <form method="POST" enctype="multipart/form-data">
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > FEELING <- --}}
 
 <select name="feeling">
  <option>How are you feeling in this moment?</option>
@@ -14,29 +16,20 @@
  <option type="text"  value="Upset">  Upset</option>
 </select>
 
-  <label for="description-input">Describe this moment in three words</label>
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > DESCRIPTION <- --}}
+
+  <label for="description-input">Describe the moment in three words:</label>
   <input id="description-input" type="text" placeholder="Funny, Memorable, Sunset" name="description">
 
-  <label for="learning-input">What did you learn from this moment?</label>
-  <input id="learning-input" type="text" placeholder="I learned to dust off my ass and keep moving...." name="learning">
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION <- --}}
 
-  <label for="gratitude-input">What are you grateful for at this moment?</label>
-  <input id="gratitude-input" type="text" placeholder="I am grateful for ...." name="gratitude">
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE  --}}
-  <p>Provide an image that captures the moment</p>
-  <input type="file" name="photo">
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION  --}}
-  <p>Where did this moment happen?</p>
+  <p>Where are you?</p>
   <label for="latitude-input">Latitude</label>
   <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
   
    <label for="longitude-input">Longitude</label>
   <input id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
 <div id="map-container"></div>  
-  <button>Create Moment</button>
-</form>
 
 <script>
   function init () {
@@ -71,3 +64,21 @@
 </script>
 
 {{> mapscript}}
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LEARNING <- --}}
+
+  <label for="learning-input">What did you learn in this moment?</label>
+  <input id="learning-input" type="text" placeholder="I learned to dust off my ass and keep moving." name="learning">
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > GRATITUDE <- --}}
+
+  <label for="gratitude-input">What are you grateful for in this moment?</label>
+  <input id="gratitude-input" type="text" placeholder="I am grateful for this moment!" name="gratitude">
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE <- --}}
+  <p>Capture the moment:</p>
+  <input type="file" name="photo">
+
+  <button>Ubelimi</button>
+</form>
+

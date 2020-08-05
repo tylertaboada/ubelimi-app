@@ -1,11 +1,10 @@
 'use strict';
 
 const { Router } = require('express');
-
 const passport = require('passport');
-
 const router = new Router();
 
+//  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > SIGN UP < - - - - - -
 router.get('/sign-up', (req, res, next) => {
   res.render('sign-up');
 });
@@ -26,6 +25,7 @@ router.post(
   })
 );
 
+//  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > SIGN IN < - - - - - -
 router.get('/sign-in', (req, res, next) => {
   res.render('sign-in');
 });
@@ -38,6 +38,7 @@ router.post(
   })
 );
 
+//  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > GITHUB < - - - - - -
 router.get(
   '/github',
   passport.authenticate('github', {
@@ -54,6 +55,7 @@ router.get(
   })
 );
 
+//  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > SIGN OUT < - - - - - -
 router.post('/sign-out', (req, res, next) => {
   req.logout();
   res.redirect('/');

@@ -4,12 +4,12 @@ const multer = require('multer');
 const cloudinary = require('cloudinary');
 const multerStorageCloudinary = require('multer-storage-cloudinary');
 const { Router } = require('express');
-const passport = require('passport');
+const passport = require('passport'); // ~ ~ ~ > DO WE NEED THIS?
 const momentRouter = new Router();
 const routeGuard = require('./../middleware/route-guard');
 const Moment = require('../models/moment');
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > CREATE MOMENT
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > CREATE MOMENT
 momentRouter.get('/create', routeGuard, (req, res, next) => {
   res.render('moment/create');
 });
@@ -56,12 +56,11 @@ momentRouter.post(
   }
 );
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > ALL MOMENTS
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > ALL MOMENTS
 momentRouter.get('/view-all', (req, res, next) => {
   Moment.find()
     .populate('creator')
     .then(moments => {
-      console.log(moments);
       res.render('moment/view-all', { moments });
     })
     .catch(error => {
@@ -69,14 +68,13 @@ momentRouter.get('/view-all', (req, res, next) => {
     });
 });
 
-//-----------------------------------------SEARCH FOR NEARBY MOMENTS----------------------
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > SEARCH NEARBY MOMENTS
 const metersToDegrees = meters => (meters / 1000 / 40000) * 360;
 
 momentRouter.get('/search', (req, res, next) => {
   const latitude = req.query.latitude;
   const longitude = req.query.longitude;
   const radius = req.query.radius;
-  console.log(latitude, longitude, radius);
   Moment.find()
     .where('location')
     .within()
@@ -85,7 +83,6 @@ momentRouter.get('/search', (req, res, next) => {
       radius: metersToDegrees(radius)
     })
     .then(moments => {
-      console.log(moments);
       res.render('moment/search', { moments });
     })
     .catch(error => {
@@ -93,7 +90,7 @@ momentRouter.get('/search', (req, res, next) => {
     });
 });
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > SINGLE MOMENT
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > SINGLE MOMENT
 
 momentRouter.get('/:id', async (req, res, next) => {
   const id = req.params.id;
@@ -110,7 +107,7 @@ momentRouter.get('/:id', async (req, res, next) => {
   }
 });
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > EDIT / DELETE
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > DELETE
 
 momentRouter.post('/:id/delete', routeGuard, (req, res, next) => {
   const id = req.params.id;
@@ -123,6 +120,8 @@ momentRouter.post('/:id/delete', routeGuard, (req, res, next) => {
       next(error);
     });
 });
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > EDIT
 
 momentRouter.get('/:id/edit', (req, res, next) => {
   const id = req.params.id;
@@ -178,9 +177,5 @@ momentRouter.post(
       });
   }
 );
-
-// momentRouter.post('/:id/delete', (req, res, next) => {
-//   res.render('/');
-// });
 
 module.exports = momentRouter;
