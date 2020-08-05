@@ -1,10 +1,10 @@
 <h1>Welcome {{ user.name }}</h1>
 
+<div id="map-container"></div>
 <a href="/profile/edit">Edit Profile</a>
 <a href="/moment/create">Create New Moment</a><br>
 <img src="{{ user.photo }}" alt="profile-pic">
-<br>
-<span><strong>Email</strong>: {{user.email}}</span>
+
 
 {{!-- INSERT DAD JOKE API --}}
 
@@ -14,6 +14,9 @@
     </div>
     <button id="get_joke" class="btn"> Ubelimi? </button>
 </div> --}}
+<br>
+<span><strong>Email</strong>: {{user.email}}</span>
+
 
   {{#each moment}}
 {{> moment}}
@@ -32,6 +35,38 @@
     <a href="/moment/delete">Delete this Moment</a>
   </ul>
   {{/each}} --}}
+
+  
+<script>
+  
+  function init () {
+    const mapContainerElement = document.getElementById('map-container');
+    const map = new window.google.maps.Map(mapContainerElement, {
+      center: {
+        lat: 38.75,
+        lng: -9.15
+      },
+      zoom: 11
+    });
+
+    
+     {{#each moments}}
+        new window.google.maps.Marker({
+         map,
+         position: {
+           lat: location.coordinates[1],
+           lng: location.coordinates[0]
+         }
+       });
+      {{/each}}
+  }
+  
+    
+  
+</script>
+
+
+{{> mapscript}}
 
 
 

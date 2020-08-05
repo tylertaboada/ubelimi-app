@@ -1,21 +1,28 @@
 <h1>Do Ubelimi Moments!!!</h1>
 
 <p>Welcome {{ user.name }}</p>
-  <h1>{{title}}</h1>
-<p>Have Fun Creating Moments</p>
+ <button id="trigger-location">Locate NearBy Moments!</button>
+<form method="GET">
+  <label for="latitude-input">Latitude</label>
+  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
+  
+  <label for="longitude-input">Longitude</label>
+  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude">
+  <label for="radius-input">Radius</label>
+  <input id="radius-input" type="text" placeholder="Radius" name="radius" value="10000">
+</form> 
 
-<a href="/moment/create">Create New Moment</a>
-<br>
-<button id="trigger-location">Locate me!</button>
 <div id="map-container"></div>
 
-  {{#each moments}}
-{{> moment}}
-  {{/each}}
+{{#each moments}}
+
+<a href="moment/{{id}}">
+<h3>{{ name }}  </h3></a> 
+
+{{/each}}
 
 
 <script>
-  
   function init () {
     const mapContainerElement = document.getElementById('map-container');
     const map = new window.google.maps.Map(mapContainerElement, {
@@ -26,7 +33,6 @@
       zoom: 11
     });
     const moments = {{{ json moments }}};
-
     for (let moment of moments) {
       const marker = new window.google.maps.Marker({
         map,
@@ -41,9 +47,9 @@
       });
     }
   }
+  console.log(point);
 </script>
-
-{{!-- 
+{{!--
 <script>
   const triggerLocationButton = document.getElementById('trigger-location');
   const latitudeInputElement = document.getElementById('latitude-input');
@@ -57,7 +63,9 @@
     }, error => {
       console.log(error);
     })
-  });
-</script>--}}
+  }); 
+</script>
+--}}
+{{!--  --}}
 
 {{> mapscript}}
