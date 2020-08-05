@@ -19,35 +19,49 @@ const storage = new multerStorageCloudinary.CloudinaryStorage({
 });
 const upload = multer({ storage });
 
-momentRouter.post('/create', routeGuard, upload.single('photo'), (req, res, next) => {
-  const { feeling, description, learning, gratitude, latitude, longitude } = req.body;
+momentRouter.post(
+  '/create',
+  routeGuard,
+  upload.single('photo'),
+  (req, res, next) => {
+    const {
+      feeling,
+      description,
+      learning,
+      gratitude,
+      latitude,
+      longitude
+    } = req.body;
 
-  let url;
-  if (req.file) {
-    url = req.file.path;
-  }
+    let url;
+    if (req.file) {
+      url = req.file.path;
+    }
 
-  Moment.create({
-    creator: req.session.passport.user,
-    feeling: feeling,
-    description: description,
-    learning: learning,
-    gratitude: gratitude,
-    photo: url,
-    location: { coordinates: [latitude, longitude] }
-  })
-    .then(moment => {
-      res.redirect(`/moment/${moment._id}`);
+    Moment.create({
+      creator: req.session.passport.user,
+      feeling: feeling,
+      description: description,
+      learning: learning,
+      gratitude: gratitude,
+      photo: url,
+      location: { coordinates: [latitude, longitude] }
     })
-    .catch(error => {
-      next(error);
-    });
-});
+      .then(moment => {
+        res.redirect(`/moment/${moment._id}`);
+      })
+      .catch(error => {
+        next(error);
+      });
+  }
+);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > ALL MOMENTS
 momentRouter.get('/view-all', (req, res, next) => {
   Moment.find()
+    .populate('creator')
     .then(moments => {
+      console.log(moments);
       res.render('moment/view-all', { moments });
     })
     .catch(error => {
@@ -78,19 +92,34 @@ momentRouter.get('/view-all', (req, res, next) => {
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > SINGLE MOMENT
 
-momentRouter.get('/:id', (req, res, next) => {
+momentRouter.get('/:id', async (req, res, next) => {
   const id = req.params.id;
-  Moment.findById(id)
-    .populate('creator')
-    .then(moment => {
+
+  try {
+    const moment = await Moment.findById(id).populate('creator');
+    if (moment) {
       res.render('moment/single', { moment: moment });
+    } else {
+      next();
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > EDIT / DELETE
+
+momentRouter.post('/:id/delete', routeGuard, (req, res, next) => {
+  const id = req.params.id;
+
+  Moment.findByIdAndDelete(id)
+    .then(() => {
+      res.redirect('/moment/view-all');
     })
     .catch(error => {
       next(error);
     });
 });
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > EDIT / DELETE
 
 momentRouter.get('/:id/edit', (req, res, next) => {
   const id = req.params.id;
@@ -104,22 +133,40 @@ momentRouter.get('/:id/edit', (req, res, next) => {
     });
 });
 
-momentRouter.post('/:id/edit', (req, res, next) => {
+momentRouter.post('/:id/edit', upload.single('photo'), (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
   console.log(data);
+  let editedMoment;
 
-  Moment.findByIdAndUpdate(id, {
-    feeling: data.feeling,
-    description: data.description,
-    learning: data.learning,
-    gratitude: data.gratitude,
-    photo: data.photo,
-    latitude: data.coordinates.latitude[0],
-    longitude: data.coordinates.longitude[1]
-  })
+  if (req.file) {
+    //there is an image
+    //create a new object with the information
+    editedMoment = {
+      feeling: data.feeling,
+      description: data.description,
+      learning: data.learning,
+      gratitude: data.gratitude,
+      photo: data.photo,
+      latitude: data.coordinates.latitude[0],
+      longitude: data.coordinates.longitude[1]
+    };
+  } else {
+    //there is no image
+    //create a new object with the information without the image
+    editedMoment = {
+      feeling: data.feeling,
+      description: data.description,
+      learning: data.learning,
+      gratitude: data.gratitude,
+      latitude: data.coordinates.latitude[0],
+      longitude: data.coordinates.longitude[1]
+    };
+  }
+
+  Moment.findByIdAndUpdate(id, editedMoment)
     .then(() => {
-      res.render('/');
+      res.redirect('/');
     })
     .catch(error => {
       next(error);
