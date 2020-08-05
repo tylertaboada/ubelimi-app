@@ -24,13 +24,9 @@
 
 {{#each moment}}
 {{> moment}}
-<<<<<<< HEAD:views/moment/profile/user.hbs
   {{/each}}
 </div>
 
-=======
-{{/each}}
->>>>>>> 4f73d4d58e142f99b0d1e6cfd2163c0056f7b8f0:views/profile/user.hbs
 
   
 <script>
@@ -44,9 +40,24 @@
       },
       zoom: 11
     });
-  }
-
   
+  const moments = {{{ json moment }}};
+
+    for (let moment of moments) {
+      const marker = new window.google.maps.Marker({
+        map,
+        position: {
+          lat: moment.location.coordinates[0],
+          lng: moment.location.coordinates[1]
+        }
+      });
+      marker.addListener('click', () => {
+        const endpoint = `/moment/${ moment._id }`;
+        window.location = endpoint;
+      });
+    }
+}
+
   
     
   
