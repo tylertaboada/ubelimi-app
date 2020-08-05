@@ -3,7 +3,7 @@
 
 <h1>Single Moment</h1>
 
-<span>Created by <a href="/profile/{{ moment.creator._id }}">{{ moment.creator.name }}</a></span>
+<span>Experienced by <a href="/profile/{{ moment.creator._id }}">{{ moment.creator.name }}</a></span>
 <div id="map-container"></div>
 <div class="moment">
   {{#if moment.photo}}
@@ -20,7 +20,10 @@
 
 <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
 
-<a href="/moment/delete">Delete this Moment</a>
+<form action="/moment/{{ moment.id }}/delete" method="POST"> 
+   <button>Delete Moment</button>
+</form>
+
 </div>
 
 <script>

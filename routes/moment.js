@@ -147,7 +147,7 @@ momentRouter.post('/:id/edit', upload.single('photo'), (req, res, next) => {
       description: data.description,
       learning: data.learning,
       gratitude: data.gratitude,
-      photo: data.photo,
+      photo:req.file.path,
       latitude: data.coordinates.latitude[0],
       longitude: data.coordinates.longitude[1]
     };
