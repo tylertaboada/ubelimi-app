@@ -1,11 +1,11 @@
  <div class="profile">
    
-<img src="{{ profile.photo }}" alt="profile-pic" id="pic">
+<img src="{{ user.photo }}" alt="profile-pic" id="pic">
 {{#if isMyOwnMyProfile}}
-<h1>Welcome {{ profile.name }}</h1>
+<h1>Welcome {{ user.name }}</h1>
  </div>
 <br>
-  <p> <span><strong>Email</strong>: {{profile.email}}</span> </p>
+  <p> <span><strong>Email</strong>: {{ user.email }}</span> </p>
 <div class="bg">
  
   <nav>

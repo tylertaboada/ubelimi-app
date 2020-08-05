@@ -170,8 +170,8 @@ momentRouter.post(
     }
 
     Moment.findByIdAndUpdate(id, editedMoment)
-      .then(() => {
-        res.redirect('/');
+      .then(moment => {
+        res.redirect(`/moment/${moment._id}`);
       })
       .catch(error => {
         next(error);
