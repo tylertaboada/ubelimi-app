@@ -36,7 +36,6 @@
   <label for="longitude-input">Longitude</label>
   <input id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
 <div id="map-container"></div>  
-<div id="map-container"></div>
   <button>Edit Moment</button>
 </form>
     {{!-- <a href="/moments">View All Moments</a> --}}
@@ -58,12 +57,11 @@
     const latitudeInputElement = document.getElementById('latitude-input');
     const longitudeInputElement = document.getElementById('longitude-input');
     map.addListener('click', event => {
-      const latitude = event.data.latLng.lat();
-      const longitude = event.data.latLng.lng();
+      const latitude = event.latLng.lat();
+      const longitude = event.latLng.lng();
       if (marker) {
         marker.setMap(null);
       }
-      console.log(event);
       marker = new window.google.maps.Marker({
         map,
         position: {

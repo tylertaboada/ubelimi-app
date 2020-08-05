@@ -19,7 +19,7 @@
 
 {{#each moments}}
 
-<a href="/moment/{{ _id }}">
+<a href="/moment/{{moment.id }}">
 <h3>{{ name }} </h3>
 </a>
 
@@ -37,7 +37,7 @@
       zoom: 11
     });
     const moments = {{{ json moments }}};
-    
+
     for (let moment of moments) {
       const marker = new window.google.maps.Marker({
         map,
