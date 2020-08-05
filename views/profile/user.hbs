@@ -1,11 +1,17 @@
  <div class="profile">
+   
 <img src="{{ user.photo }}" alt="profile-pic" id="pic">
-<h1>Welcome {{ user.name }}</h1>
-  </div>
 
+<h1>Welcome {{ user.name }}</h1>
+ </div>
+<br>
+  <p> <span><strong>Email</strong>: {{user.email}}</span> </p>
 <div class="bg">
-<a href="/profile/edit">Edit Profile</a>
+ 
+  <nav>
+    <a href="/profile/edit">Edit Profile</a>
 <a href="/moment/create">Create New Moment</a><br>
+ </nav>
 <div id="map-container"></div>
 
 
@@ -18,8 +24,7 @@
     </div>
     <button id="get_joke" class="btn"> Ubelimi? </button>
 </div> --}}
-<br>
-<span><strong>Email</strong>: {{user.email}}</span>
+
 
 
 {{#each moment}}
@@ -50,6 +55,7 @@
           lat: moment.location.coordinates[0],
           lng: moment.location.coordinates[1]
         }
+       
       });
       marker.addListener('click', () => {
         const endpoint = `/moment/${ moment._id }`;

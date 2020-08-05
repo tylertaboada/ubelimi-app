@@ -1,9 +1,10 @@
 <div class="bg">
 
-<h1>Do Ubelimi Moments!!!</h1>
+<h1>Ubelimi Moments Around You!</h1>
 
 <p>Welcome {{ user.name }}</p>
- <button id="trigger-location">Locate NearBy Moments!</button>
+
+ {{!--
 <form method="GET">
   <label for="latitude-input">Latitude</label>
   <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
@@ -13,13 +14,14 @@
   <label for="radius-input">Radius</label>
   <input id="radius-input" type="text" placeholder="Radius" name="radius" value="10000">
 </form> 
-
+--}}
 <div id="map-container"></div>
 
 {{#each moments}}
 
-<a href="moment/{{id}}">
-<h3>{{ name }}  </h3></a> 
+<a href="/moment/{{ _id }}">
+<h3>{{ name }} </h3>
+</a>
 
 {{/each}}
 
@@ -35,6 +37,7 @@
       zoom: 11
     });
     const moments = {{{ json moments }}};
+    
     for (let moment of moments) {
       const marker = new window.google.maps.Marker({
         map,
@@ -49,25 +52,7 @@
       });
     }
   }
-  console.log(point);
+
 </script>
-{{!--
-<script>
-  const triggerLocationButton = document.getElementById('trigger-location');
-  const latitudeInputElement = document.getElementById('latitude-input');
-  const longitudeInputElement = document.getElementById('longitude-input');
-  triggerLocationButton.addEventListener('click', () => {
-    window.navigator.geolocation.getCurrentPosition(position => {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      latitudeInputElement.value = latitude;
-      longitudeInputElement.value = longitude;
-    }, error => {
-      console.log(error);
-    })
-  }); 
-</script>
---}}
-{{!--  --}}
 
 {{> mapscript}}

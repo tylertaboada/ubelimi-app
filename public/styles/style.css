@@ -96,6 +96,10 @@ header {
   background-color: white;
   font-size: 0.5em; }
 
+.logo {
+  width: 150px;
+  height: 100px; }
+
 .welcome {
   display: block;
   margin: 0 auto; }
@@ -113,7 +117,7 @@ header {
 .profile {
   display: flex;
   flex-direction: row;
-  margin: 0;
+  margin: 5px;
   padding: 0; }
 
 ul {
