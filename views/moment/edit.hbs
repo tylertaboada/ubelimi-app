@@ -31,10 +31,10 @@
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION  --}}
   <p>Where did this moment happen?</p>
  <label for="latitude-input">Latitude</label>
-  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
+  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude" value={{moment.location.coordinates.[0]}}>
   
   <label for="longitude-input">Longitude</label>
-  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
+  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude" value={{moment.location.coordinates.[1]}}> 
 <div id="map-container"></div>  
   <button>Edit Moment</button>
 </form>

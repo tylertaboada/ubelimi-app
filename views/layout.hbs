@@ -9,25 +9,29 @@
   </head>
   <body>
     <header>
- 
     </header>
     <nav>
-     <a href="/"><img src="https://bcassetcdn.com/social/02lfcg91si/preview.png" alt="Ubelimi" class="logo"> </a> 
+      <a href="/"><img src="/images/ubelimi.logo.png" alt="Ubelimi" class="logo"></a> 
     
       {{#if user}}
+
        <a href="/about">About</a>
-      <a href="/profile">{{user.name}}'s Profile</a>
-     <a href="/moment/view-all">View all Moments</a><br>
-        <form action="/authentication/sign-out" method="POST">
+       <a href="/profile/{{ user.id }}">{{user.name}}'s Profile</a>
+       <a href="/moment/view-all">View all Moments</a><br>
+       <form action="/authentication/sign-out" method="POST">
           <button>Sign Out</button>
-        </form>
-        {{else}}
-         <a href="/about">About</a>
-        <a href="/authentication/sign-in">Sign In</a>
-        <a href="/authentication/sign-up">Sign Up</a>
+       </form>
+       
+      {{else}}
+
+       <a href="/about">About</a>
+       <a href="/authentication/sign-in">Sign In</a>
+       <a href="/authentication/sign-up">Sign Up</a>
        <a href="/authentication/sign-up">View All Moments</a>
+
       {{/if}}
     </nav>
+
     {{{body}}}
 
     <script src="/scripts/script.js"></script>

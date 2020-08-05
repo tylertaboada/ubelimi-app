@@ -1,17 +1,19 @@
  <div class="profile">
    
-<img src="{{ user.photo }}" alt="profile-pic" id="pic">
-
-<h1>Welcome {{ user.name }}</h1>
+<img src="{{ profile.photo }}" alt="profile-pic" id="pic">
+{{#if isMyOwnMyProfile}}
+<h1>Welcome {{ profile.name }}</h1>
  </div>
 <br>
-  <p> <span><strong>Email</strong>: {{user.email}}</span> </p>
+  <p> <span><strong>Email</strong>: {{profile.email}}</span> </p>
 <div class="bg">
  
   <nav>
     <a href="/profile/edit">Edit Profile</a>
 <a href="/moment/create">Create New Moment</a><br>
  </nav>
+
+ {{/if}}
 <div id="map-container"></div>
 
 
@@ -27,7 +29,7 @@
 
 
 
-{{#each moment}}
+{{#each moments}}
 {{> moment}}
   {{/each}}
 </div>

@@ -12,10 +12,34 @@ const User = require('./../models/user');
 const Moment = require('../models/moment');
 
 profileRouter.get('/', routeGuard, (req, res, next) => {
+  const isMyOwnMyProfile = true;
   Moment.find({ creator: req.session.passport.user })
     .populate('creator')
     .then(moment => {
-      res.render('profile/user', { moment });
+      res.render('profile/user', { moment, isMyOwnMyProfile });
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+profileRouter.get('/:id', routeGuard, (req, res, next) => {
+  let isMyOwnMyProfile = false;
+  const id = req.params.id;
+  let user;
+
+  if (id === req.session.passport.user) {
+    isMyOwnMyProfile = true;
+  }
+
+  User.findById(id)
+    .then(document => {
+      user = document;
+
+      return Moment.find({ creator: id });
+    })
+    .then(moments => {
+      res.render('profile/user', { profile: user, isMyOwnMyProfile, moments });
     })
     .catch(error => {
       next(error);
