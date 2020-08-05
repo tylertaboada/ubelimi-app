@@ -35,24 +35,6 @@
       },
       zoom: 11
     });
-    const moments = {{{ json moments }}};
-    for (let moment of moments) {
-      const marker = new window.google.maps.Marker({
-        map,
-        position: {
-          lat: moment.location.coordinates[1],
-          lng: moment.location.coordinates[0]
-        }
-      });
-      marker.addListener('click', () => {
-        const endpoint = `/moment/${ moment._id }`;
-        window.location = endpoint;
-      });
-    }
-  }
-</script>
-
-<script>
   const triggerLocationButton = document.getElementById('trigger-location');
   const latitudeInputElement = document.getElementById('latitude-input');
   const longitudeInputElement = document.getElementById('longitude-input');
@@ -62,10 +44,19 @@
       const longitude = position.coords.longitude;
       latitudeInputElement.value = latitude;
       longitudeInputElement.value = longitude;
+      const marker = new window.google.maps.Marker({
+        map,
+        position:{
+        lat: latitude, 
+        lng: longitude
+        }
+     });
     }, error => {
       console.log(error);
     })
-  });
+   });
+     
+   }
 </script>
 
 {{> mapscript}}

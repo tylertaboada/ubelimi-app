@@ -76,15 +76,16 @@ momentRouter.get('/search', (req, res, next) => {
   const latitude = req.query.latitude;
   const longitude = req.query.longitude;
   const radius = req.query.radius;
-
+  console.log(latitude, longitude, radius);
   Moment.find()
     .where('location')
     .within()
     .circle({
-      center: [longitude, latitude],
+      center: [latitude, longitude],
       radius: metersToDegrees(radius)
     })
     .then(moments => {
+      console.log(moments);
       res.render('moment/search', { moments });
     })
     .catch(error => {
