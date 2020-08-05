@@ -7,7 +7,12 @@
     <li>{{ gratitude }}</li>
     <li>{{ location.coordinates.[1] }}</li>
     <li>{{ location.coordinates.[0] }}</li>
+    <li>Experienced by {{ creator.name }}</li>
      <button> <a href="/moment/{{_id}}">Explore </a> </button>
   <button>  <a href="/moment/{{ _id }}/edit">Edit</a> </button>
-   <button> <a href="/moment/delete">Delete</a></button>
+  <form action="/moment/{{ _id }}/delete" method="POST"> 
+   <button>Delete Moment</button>
+</form>
 </ul>
+
+

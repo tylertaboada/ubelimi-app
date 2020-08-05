@@ -12,7 +12,8 @@ const User = require('./../models/user');
 const Moment = require('../models/moment');
 
 profileRouter.get('/', routeGuard, (req, res, next) => {
-  Moment.find()
+  Moment.find({ creator: req.session.passport.user })
+    .populate('creator')
     .then(moment => {
       res.render('profile/user', { moment });
     })
