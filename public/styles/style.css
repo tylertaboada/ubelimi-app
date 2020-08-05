@@ -40,7 +40,9 @@ p {
 
 img {
   width: 50vw;
-  max-width: 50vh; }
+  max-width: 50vh;
+  display: flex;
+  flex-direction: row; }
 
 form {
   display: flex;
@@ -75,5 +77,46 @@ textarea {
   width: 50vw;
   display: block;
   margin: 20px auto; }
+
+a {
+  color: #00b7ff; }
+
+.container {
+  background-color: grey;
+  color: black;
+  text-align: center;
+  margin: 0;
+  padding: 15px;
+  max-width: 500px; }
+
+header {
+  text-align: center; }
+
+.main {
+  background-color: white;
+  font-size: 0.5em; }
+
+.welcome {
+  display: block;
+  margin: 0 auto; }
+
+.bg {
+  text-align: center;
+  background-color: whitesmoke;
+  margin: 5px;
+  padding: 20px; }
+
+#pic {
+  width: 100px;
+  height: 100px; }
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style-type: none; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,9 +1,13 @@
+ <div class="profile">
+<img src="{{ user.photo }}" alt="profile-pic" id="pic">
 <h1>Welcome {{ user.name }}</h1>
+  </div>
 
-<div id="map-container"></div>
+<div class="bg">
 <a href="/profile/edit">Edit Profile</a>
 <a href="/moment/create">Create New Moment</a><br>
-<img src="{{ user.photo }}" alt="profile-pic">
+<div id="map-container"></div>
+
 
 
 {{!-- INSERT DAD JOKE API --}}
@@ -21,20 +25,8 @@
   {{#each moment}}
 {{> moment}}
   {{/each}}
+</div>
 
-  {{!-- {{#each moment}}
-  <ul>
-    <li><img src="{{ photo }}" alt="{{ description }}"></li>
-    <li>{{ feeling }}</li>
-    <li>{{ description }}</li>
-    <li>{{ learning }}</li>
-    <li>{{ gratitude }}</li>
-    <li>{{ location.coordinates.[1] }}</li>
-    <li>{{ location.coordinates.[0] }}</li>
-    <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
-    <a href="/moment/delete">Delete this Moment</a>
-  </ul>
-  {{/each}} --}}
 
   
 <script>
@@ -48,18 +40,9 @@
       },
       zoom: 11
     });
-
-    
-     {{#each moments}}
-        new window.google.maps.Marker({
-         map,
-         position: {
-           lat: location.coordinates[1],
-           lng: location.coordinates[0]
-         }
-       });
-      {{/each}}
   }
+
+  
   
     
   
