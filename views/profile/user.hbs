@@ -15,27 +15,51 @@
 
  {{/if}}
  <button id="trigger-location">Where am I?</button>
-<div id="map-container"></div>
 
+<div class="profile">
 
+<div id="profile-menu">  {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -> PROFILE MENU <- --}}
 
-{{!-- INSERT DAD JOKE API --}}
-
-{{!-- <div class="dad-joke">
-    <div id="joke" class="joke">
-        // Joke goes here
+    
+    <div class="profpic"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - -> user profile picture <- --}}
+      <img src="{{ user.photo }}" alt="profile-pic" id="pic">
     </div>
-    <button id="get_joke" class="btn"> Ubelimi? </button>
-</div> --}}
 
-
-
-{{#each moments}}
-{{> moment}}
-  {{/each}}
+    
+  <div class="buttons"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -> buttons <- --}}
+    <h3>Welcome back, {{ user.name }}.</h3>
+    <section class="menu">
+      {{#if isMyOwnMyProfile}}
+      <a href="/moment/create">Create Moment</a><br>
+      <a href="/profile/edit">Update Profile</a>
+      <a href="/profile/view-all">View All</a>
+      <a href="/profile/placeholder">Show more</a>
+    </section>
+     {{/if}}
+  </div>
 </div>
 
+<div id="section-map"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -> MAP SECTION <- --}}
 
+   {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -> moment filter <- --}}
+  <div class="flex-column">
+      <p>Your moments</p>     
+        <select name="moment-filter">
+        <option type="text"  value="Amused"> Last Week </option>
+        <option type="text"  value="Anxious"> Last Month </option>
+        <option type="text"  value="Brave">  Last Year </option>
+        </select>
+  </div>
+<div id="map-container"></div>
+</div>
+
+<div class="section">
+
+    {{#each moments}}
+      {{> moment}}
+      {{/each}}
+
+</div>
   
 <script>
   
@@ -92,8 +116,31 @@
 }
 </script>
 
+        {{> mapscript}}
 
-{{> mapscript}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
 
 
 

@@ -1,25 +1,14 @@
 <div class="bg">
 
 <h1>Ubelimi Moments Around You!</h1>
-
+<p>Click on marker to view a moment!</p>
 <p>Welcome {{ user.name }}</p>
 
- {{!--
-<form method="GET">
-  <label for="latitude-input">Latitude</label>
-  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
-  
-  <label for="longitude-input">Longitude</label>
-  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude">
-  <label for="radius-input">Radius</label>
-  <input id="radius-input" type="text" placeholder="Radius" name="radius" value="10000">
-</form> 
---}}
 <div id="map-container"></div>
 
 {{#each moments}}
 
-<a href="/moment/{{moment.id }}">
+<a href="/moment/{{moment._id }}">
 <h3>{{ name }} </h3>
 </a>
 

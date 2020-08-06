@@ -87,6 +87,33 @@ textarea {
   display: block;
   margin: 20px auto; }
 
+.buttons h3 {
+  color: white;
+  margin-left: 10px;
+  font-size: 35px; }
+
+.menu {
+  display: flex;
+  flex-direction: row; }
+
+.menu a {
+  background-color: #37393b;
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  margin: 10px; }
+
+#profile-menu {
+  display: flex;
+  flex-direction: row;
+  background-image: url("https://images.unsplash.com/photo-1561679421-8198208ad6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
+  background-position: bottom;
+  padding: 15px; }
+
+.profpic {
+  margin: 20px; }
+
 a {
   color: #00b7ff; }
 
@@ -120,12 +147,19 @@ header {
   padding: 20px; }
 
 #pic {
-  width: 100px;
-  height: 100px; }
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  display: block;
+  margin-right: 20px; }
+
+.flex-column {
+  background-color: salmon;
+  font-size: 12px; }
 
 .profile {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 5px;
   padding: 0; }
 
