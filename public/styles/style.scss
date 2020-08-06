@@ -87,6 +87,16 @@ textarea {
   color: inherit;
   background-color: transparent;
 }
+#signup-map-container {
+  height: 30vh;
+  width: 30vw;
+  display: block;
+  margin: 20px auto;
+}
+
+#map {
+  height: 100%;
+}
 
 #map-container {
   height: 50vh;

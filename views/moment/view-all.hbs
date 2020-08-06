@@ -7,6 +7,7 @@
 
 <a href="/moment/create">Create New Moment</a>
 
+<button id="trigger-location">Where am I?</button>
 <div id="map-container"></div>
 
 {{#each moments}}
@@ -34,58 +35,20 @@
         position: {
           lat: moment.location.coordinates[0],
           lng: moment.location.coordinates[1]
-        }
+        },
+        icon: { url: "http://maps.google.com/mapfiles/ms/icons/purple-dot.png"  }
+
       });
       marker.addListener('click', () => {
         const endpoint = `/moment/${ moment._id }`;
         window.location = endpoint;
       });
     }
-  }
-</script>
-
-
-
-{{!-- -----------------------------------------------------------NEARBY SEARCH --}}
-
-{{!-- <button id="trigger-location">Ubelimi Moments NearBy!</button>
-
-<form action="/moment/search" method="GET">
-  <label for="latitude-input">Latitude</label>
-  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
-  
-  <label for="longitude-input">Longitude</label>
-  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude">
-
-  <label for="radius-input">Radius</label>
-  <input id="radius-input" type="text" placeholder="Radius" name="radius" value="10000">
-
-  <button>Search</button>
-</form>
-
-<div id="map-container"></div>
-
-{{#each moments}}
-  <a href="/moment/{{ moment.id }}">
-    <h3>{{ name }}</h3>
-  </a>
-{{/each}}
-
-<script>
-  function init () {
-    const mapContainerElement = document.getElementById('map-container');
-    const map = new window.google.maps.Map(mapContainerElement, {
-      center: {
-        lat: 38.75,
-        lng: -9.15
-      },
-      zoom: 11
-    });
-  const triggerLocationButton = document.getElementById('trigger-location');
-  const latitudeInputElement = document.getElementById('latitude-input');
-  const longitudeInputElement = document.getElementById('longitude-input');
-  triggerLocationButton.addEventListener('click', () => {
-    window.navigator.geolocation.getCurrentPosition(position => {
+     const triggerLocationButton = document.getElementById('trigger-location');
+     const latitudeInputElement = document.getElementById('latitude-input');
+     const longitudeInputElement = document.getElementById('longitude-input');
+     triggerLocationButton.addEventListener('click', () => {
+     window.navigator.geolocation.getCurrentPosition(position => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
       latitudeInputElement.value = latitude;
@@ -95,15 +58,54 @@
         position:{
         lat: latitude, 
         lng: longitude
-        }
-     });
-    }, error => {
-    })
-   });
+        },
+        icon: { url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"  }
+      });
+     } , error => {
+      console.log(error);
+     })
+    });
      
    }
 </script>
 
-{{> mapscript}} --}}
+
+
+{{!-- -----------------------------------------------------------NEARBY SEARCH --}}
+
+
+<button class="open-button" onclick="openForm()">Ubelimi Moments NearBy!</button>
+<div class="chat-popup" id="myForm">
+  <form action="/moment/search" class="form-container" method="GET">   
+
+<label for="latitude-input">Latitude</label>
+  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
+  
+  <label for="longitude-input">Longitude</label>
+  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude">
+      <label for="radius-input">Radius</label>
+  <input id="radius-input" type="text" placeholder="Radius" name="radius" value="10000">
+<label for="msg"><b>Click Where am i button and Search!</b></label>
+   <button class="search">Search</button>
+  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+  
+{{#each moments}}
+  <a href="/moment/{{ moment.id }}">
+    <h3>{{ name }}</h3>
+  </a>
+{{/each}}
+
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
 
 {{> mapscript}}

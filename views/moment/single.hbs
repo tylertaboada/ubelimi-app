@@ -13,8 +13,8 @@
   <h3> {{ user.name }} is feeling {{ moment.feeling }}  </h3>
   <p>{{ moment.learning }}</p>
   <p>{{ moment.gratitude }}</p>
-  <p> {{ moment.location.coordinates.[1] }}</p>
-   <p> {{ moment.location.coordinates.[0] }}</p>
+  {{!-- <p> {{ moment.location.coordinates.[1] }}</p>
+   <p> {{ moment.location.coordinates.[0] }}</p> --}}
 </div>
 
 
@@ -39,11 +39,13 @@
   
   
     const marker = new window.google.maps.Marker({
+      
       map,
       position: {
         lat:  {{ moment.location.coordinates.[0] }},
         lng: {{ moment.location.coordinates.[1] }}
-      }
+      },
+      
     });
   };
 </script>

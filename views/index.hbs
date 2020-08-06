@@ -1,85 +1,15 @@
 <h1> Ubelimi </h1>
 
-{{!  
-<img src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg" alt="welcome" class="welcome">
-}}
-<button id="trigger-location">Where am I?</button>
-<div id="map-container"></div>
-
-<button class="open-button" onclick="openForm()">Ubelimi Moments NearBy!</button>
-  
+<div class="Signup">
 
 
 
-<div class="chat-popup" id="myForm">
-  <form action="/moment/search" class="form-container" method="GET">   
+<form action="/authentication/sign-up" method="GET">
+<button> Create Account </button>
+</form>
 
-<label for="latitude-input">Latitude</label>
-  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
-  
-  <label for="longitude-input">Longitude</label>
-  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude">
-      <label for="radius-input">Radius</label>
-  <input id="radius-input" type="text" placeholder="Radius" name="radius" value="10000">
-<label for="msg"><b>Click Where am i button and Search!</b></label>
-   <button class="search">Search</button>
-  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
-  
+<form action="/authentication/sign-in" method="GET">
+<button> Log In </button>
+</form>
  
-
-
-{{#each moments}}
-  <a href="/moment/{{ moment.id }}">
-    <h3>{{ name }}</h3>
-  </a>
-{{/each}}
-
-
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
-
-
-
-<script>
-  function init () {
-    const mapContainerElement = document.getElementById('map-container');
-    const map = new window.google.maps.Map(mapContainerElement, {
-      center: {
-        lat: 38.75,
-        lng: -9.15
-      },
-      zoom: 11
-    });
-  const triggerLocationButton = document.getElementById('trigger-location');
-  const latitudeInputElement = document.getElementById('latitude-input');
-  const longitudeInputElement = document.getElementById('longitude-input');
-  triggerLocationButton.addEventListener('click', () => {
-    window.navigator.geolocation.getCurrentPosition(position => {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      latitudeInputElement.value = latitude;
-      longitudeInputElement.value = longitude;
-      const marker = new window.google.maps.Marker({
-        map,
-        position:{
-        lat: latitude, 
-        lng: longitude
-        }
-     });
-    }, error => {
-      console.log(error);
-    })
-   });
-     
-   }
-</script>
-{{> mapscript}}
+</div>

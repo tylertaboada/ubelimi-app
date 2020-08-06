@@ -22,14 +22,36 @@
   <label for="description-input">Describe the moment in three words:</label>
   <input id="description-input" type="text" placeholder="Funny, Memorable, Sunset" value="{{ moment.description }}" name="description">
 
+
+  
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LEARNING <- --}}
+
+  <label for="learning-input">What did you learn in this moment?</label>
+  <input id="learning-input" type="text" placeholder="I learned to dust off my ass and keep moving...." value="{{ moment.learning }}" name="learning">
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > GRATITUDE <- --}}
+
+  <label for="gratitude-input">What are you grateful for in this moment?</label>
+  <input id="gratitude-input" type="text" placeholder="I am grateful for ...." value="{{ moment.gratitude }}" name="gratitude">
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE  --}}
+  <p>Capture the moment:</p>
+  <img src="{{moment.photo}}" alt="Moment Photo">
+  <input type="file" name="photo">
+
+  <button>Ubelimi</button>
+</form>
+
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION  --}}
-  <p>Where are you?</p>
- <label for="latitude-input">Latitude</label>
-  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude" value={{moment.location.coordinates.[0]}}>
+          <p>Where are you?</p>
+
+<div id="map-container"></div>  
+
+<label for="latitude-input">Latitude</label>
+  <input type="hidden" id="latitude-input" type="text" placeholder="Latitude" name="latitude" value={{moment.location.coordinates.[0]}}>
   
   <label for="longitude-input">Longitude</label>
-  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude" value={{moment.location.coordinates.[1]}}> 
-<div id="map-container"></div>  
+  <input type="hidden" id="longitude-input" type="text" placeholder="Longitude" name="longitude" value={{moment.location.coordinates.[1]}}> 
 
     <script>
   function init () {
@@ -65,25 +87,4 @@
 </script>
 
 {{> mapscript}}
-
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LEARNING <- --}}
-
-  <label for="learning-input">What did you learn in this moment?</label>
-  <input id="learning-input" type="text" placeholder="I learned to dust off my ass and keep moving...." value="{{ moment.learning }}" name="learning">
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > GRATITUDE <- --}}
-
-  <label for="gratitude-input">What are you grateful for in this moment?</label>
-  <input id="gratitude-input" type="text" placeholder="I am grateful for ...." value="{{ moment.gratitude }}" name="gratitude">
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE  --}}
-  <p>Capture the moment:</p>
-  <img src="{{moment.photo}}" alt="Moment Photo">
-  <input type="file" name="photo">
-
-  <button>Ubelimi</button>
-</form>
-
-  
 

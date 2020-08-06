@@ -24,6 +24,10 @@ profileRouter.get('/', routeGuard, (req, res, next) => {
     });
 });
 
+profileRouter.get('/location', routeGuard, (req, res, next) => {
+  res.render('profile/location');
+});
+
 const storage = new multerStorageCloudinary.CloudinaryStorage({
   cloudinary: cloudinary.v2
 });
