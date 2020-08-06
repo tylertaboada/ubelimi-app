@@ -8,57 +8,22 @@
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    <header>
-    </header>
-    <nav class="main-menu">
-      <a href="/"><img src="/images/ubelimi_logo.png" alt="Ubelimi" class="logo"></a> 
-
-    <!-- Just an image -->
 <nav class="navbar navbar-light bg-light">
-  <span class="d-flex flex-row">
-   <a class="navbar-brand" href="/">
-    <img src="/images/ubelimi-profile-pic.jpeg" width="30" height="30" alt="" loading="lazy">
-   </a>
-    <form action="/authentication/sign-out" method="POST">
-          <button>Sign Out </button>
-       </form>
-        <p class="nav item">
-        <a class="nav-link" href="/about">About</a>
-      </p>
-     
-</span>
+   <a href="/"><img src="/images/ubelimi_logo.png" alt="Ubelimi" class="logo"></a> 
+          <a href="/about">About</a>
+    {{#if user}}
+     <span class="d-flex flex-row-reverse">
+         <a href="/profile/user">
+          <img class='profile-pic-nav' src="/images/ubelimi-profile-pic.jpeg" alt="" loading="lazy">
+        </a> 
+        <form class='nav-form' action="/authentication/sign-out" method="POST">
+          <button class='signout'>Sign Out </button>
+        </form>
+      </span>
   
+       {{/if}}
+ 
 </nav>
-
-
-    <nav>
-    
-      {{#if user}}
-
-       
-       <a href="/profile/{{ user.id }}">{{user.name}}'s Profile</a>
-       {{!-- <a href="/moment/view-all">View all Moments</a><br> --}}
-       <form action="/authentication/sign-out" method="POST">
-          <button>Sign Out</button>
-       </form>
-       <a href="/moment/view-all">View all Moments</a><br>
-       
-       
-      {{else}}
-
-       <a href="/about">About</a>
-       <a href="/authentication/sign-in">Sign In</a>
-       <a href="/authentication/sign-up">Sign Up</a>
-       <a href="/authentication/sign-up">View All Moments</a>
-
-      {{/if}}
-    </nav>
-
-
-
-
-
-
     {{{body}}}
 
     <script src="/scripts/script.js"></script>
