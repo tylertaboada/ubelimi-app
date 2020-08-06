@@ -67,18 +67,16 @@ textarea {
   min-height: 8em;
   resize: vertical; }
 
+#photos {
+  width: 50vw;
+  height: 50vh; }
+
 #profile {
   max-width: 300px;
   padding: 0.5em;
   font: inherit;
   color: inherit;
-<<<<<<< HEAD
   background-color: transparent; }
-=======
-<<<<<<< Updated upstream
-  background-color: transparent;
-}
->>>>>>> 9e741158452a0336b5e63f6d8d79299db4f57e84
 
 #signup-map-container {
   height: 30vh;
@@ -93,24 +91,15 @@ textarea {
   height: 50vh;
   width: 100%;
   display: block;
-<<<<<<< HEAD
   margin: 0 auto; }
-=======
-  margin: 0 auto;
-  margin: 20px auto;
-}
-=======
-  background-color: transparent; }
->>>>>>> Stashed changes
->>>>>>> 9e741158452a0336b5e63f6d8d79299db4f57e84
 
 .buttons p {
-  color: white;
+  color: black;
   margin-top: 1em;
   font-family: Lato;
   font-style: normal;
   font-weight: 600;
-  font-size: 1.25em;
+  font-size: 1.3em;
   line-height: normal; }
 
 .main-menu img {
@@ -118,9 +107,10 @@ textarea {
   height: 20px; }
 
 .menu a {
-  background-color: #37393b;
+  background-color: black;
   color: white;
   font-size: 14px;
+  font-weight: 400;
   padding: 5px 10px 5px 10px;
   border-radius: 15px; }
 
@@ -128,25 +118,28 @@ textarea {
   display: flex;
   flex-direction: row;
   background-image: url("https://images.unsplash.com/photo-1561679421-8198208ad6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
-  background-position: bottom;
-<<<<<<< Updated upstream
-  background-size: inherit;
+  background-position: top;
   background-repeat: no-repeat; }
 
-<<<<<<< HEAD
+#user-moment-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: lightyellow;
+  border-radius: 15px; }
+
+#moment-preview {
+  margin-top: 10px;
+  margin-left: 10px; }
+
+#user-moment-container img {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px; }
+
 #section-map p {
   font-size: 16px; }
-=======
-#section-map {
-  margin: 0 auto;
-}
-=======
-  background-size: inherit; }
->>>>>>> Stashed changes
->>>>>>> 9e741158452a0336b5e63f6d8d79299db4f57e84
-
-a {
-  color: #00b7ff; }
 
 .container {
   background-color: grey;
@@ -197,16 +190,13 @@ ul {
   height: 50vh;
   width: 50vw;
   display: block;
-  margin: 20px auto; }
-<<<<<<< HEAD
+  margin: 0 auto; }
 
 #map-user {
   height: 50vh;
   width: 100%;
   display: block;
   margin: 0 auto; }
-=======
->>>>>>> 9e741158452a0336b5e63f6d8d79299db4f57e84
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
