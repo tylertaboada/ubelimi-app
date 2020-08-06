@@ -1,3 +1,28 @@
-<h1>{{message}}</h1>
+ <h1>{{message}}</h1>
 <h2>{{error.status}}</h2>
 <pre>{{error.stack}}</pre>
+
+<div class="container" id="jokes">
+
+  <div class="card" style="width: 40rem;">
+    <div class="card-header">
+     <h3>  Ooops! There was an ERROR!.</h3> 
+    
+      {{#if user }}
+           <h6>While you are here, Click Ubelimi or Explore!</h6>
+          {{else}}
+           <h6>While you are here, Click Ubelimi or Home!</h6>
+          {{/if }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title joke"> {{joke}} </h5>
+    <a href="/error" class="btn btn-primary">Ubelimi?</a> 
+          {{#if user }}
+           <a href="/moment/view-all" class="btn btn-success">Explore</a>
+          {{else}}
+          <a href="/" class="btn btn-primary">Home</a>
+          {{/if }}
+  </div>
+</div>
+</div>
+
