@@ -1,17 +1,22 @@
-*, *:before, *:after {
-  box-sizing: border-box; }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
 body {
   max-width: 52em;
-  padding: 0 1em;
+  padding: 0;
   margin: 0 auto;
   font-family: sans-serif;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 2; }
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 2;
+}
 
 a {
   color: inherit;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 /*
 nav {
@@ -33,22 +38,26 @@ h2,
 h3,
 p {
   margin: 0;
-  line-height: inherit; }
-  h1:not(:last-child),
-  h2:not(:last-child),
-  h3:not(:last-child),
-  p:not(:last-child) {
-    margin-bottom: 1rem; }
+  line-height: inherit;
+}
+h1:not(:last-child),
+h2:not(:last-child),
+h3:not(:last-child),
+p:not(:last-child) {
+  margin-bottom: 1rem;
+}
 
 img {
   width: 50vw;
   max-width: 50vh;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+}
 
 form {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 input,
 textarea,
@@ -61,36 +70,52 @@ button,
   margin-bottom: 1em;
   font: inherit;
   color: inherit;
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 textarea {
   min-height: 8em;
-  resize: vertical; }
+  resize: vertical;
+}
 
 #profile {
   max-width: 300px;
   padding: 0.5em;
   font: inherit;
   color: inherit;
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 #signup-map-container {
   height: 30vh;
   width: 30vw;
   display: block;
-  margin: 20px auto; }
+  margin: 20px auto;
+}
 
 #map {
-  height: 100%; }
+  height: 100%;
+}
 
 .buttons h3 {
-  color: white;
-  margin-left: 10px;
-  font-size: 35px; }
+  color: red;
+}
+#map-container {
+  height: 50vh;
+  width: 50vw;
+  display: block;
+  margin: 20px auto;
+}
 
-.menu {
-  display: flex;
-  flex-direction: row; }
+.buttons p {
+  color: white;
+  margin-top: 1em;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.25em;
+  line-height: normal;
+}
 
 .menu a {
   background-color: #37393b;
@@ -98,20 +123,19 @@ textarea {
   font-size: 14px;
   padding: 5px 10px 5px 10px;
   border-radius: 15px;
-  margin: 10px; }
+}
 
 #profile-menu {
   display: flex;
   flex-direction: row;
-  background-image: url("https://images.unsplash.com/photo-1561679421-8198208ad6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
+  background-image: url('https://images.unsplash.com/photo-1561679421-8198208ad6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80');
   background-position: bottom;
-  padding: 15px; }
-
-.profpic {
-  margin: 20px; }
+  background-size: inherit;
+}
 
 a {
-  color: #00b7ff; }
+  color: #00b7ff;
+}
 
 .container {
   background-color: grey;
@@ -119,60 +143,61 @@ a {
   text-align: center;
   margin: 0;
   padding: 15px;
-  max-width: 500px; }
+  max-width: 500px;
+}
 
 header {
-  text-align: center; }
+  text-align: center;
+}
 
 .main {
   background-color: white;
-  font-size: 0.5em; }
+  font-size: 0.5em;
+}
 
 .logo {
   width: 150px;
-  height: 100px; }
+  height: 100px;
+}
 
 .welcome {
   display: block;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 .bg {
   text-align: center;
   background-color: whitesmoke;
   margin: 5px;
-  padding: 20px; }
+  padding: 20px;
+}
 
 #pic {
-  width: 125px;
-  height: 125px;
+  width: 7em;
+  height: 7em;
   border-radius: 50%;
-  display: block;
-  margin-right: 20px; }
+  margin: 1em;
+}
 
-.flex-column {
-  background-color: salmon;
-  font-size: 12px; }
+.card {
+  background-color: rgba(246, 232, 171, 0.482);
+  font-size: 0.5em;
+}
 
 .profile {
-  display: flex;
-  flex-direction: column;
-  margin: 5px;
-  padding: 0; }
-
-.section-moment {
-  background-color: yellow;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start; }
+  width: 100%;
+}
 
 ul {
-  list-style-type: none; }
+  list-style-type: none;
+}
 
 #map-container {
   height: 50vh;
   width: 50vw;
   display: block;
-  margin: 20px auto; }
+  margin: 20px auto;
+}
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
@@ -185,7 +210,8 @@ ul {
   position: fixed;
   bottom: -10px;
   right: 28px;
-  width: 280px; }
+  width: 280px;
+}
 
 /* The popup chat - hidden by default */
 .chat-popup {
@@ -193,13 +219,15 @@ ul {
   position: fixed;
   bottom: -10px;
   right: 15px;
-  border: 1px solid #f1f1f1; }
+  border: 1px solid #f1f1f1;
+}
 
 /* Add styles to the form container */
 .form-container {
   max-width: 300px;
   padding: 5px;
-  background-color: white; }
+  background-color: white;
+}
 
 /* Full-width textarea */
 .form-container textarea {
@@ -209,12 +237,14 @@ ul {
   border: none;
   background: #f1f1f1;
   resize: none;
-  min-height: 200px; }
+  min-height: 200px;
+}
 
 /* When the textarea gets focus, do something */
 .form-container textarea:focus {
   background-color: #ddd;
-  outline: none; }
+  outline: none;
+}
 
 /* Set a style for the submit/send button */
 .form-container .search {
@@ -225,20 +255,24 @@ ul {
   cursor: pointer;
   width: 100%;
   margin-bottom: 10px;
-  opacity: 0.8; }
+  opacity: 0.8;
+}
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red; }
+  background-color: red;
+}
 
 /* Add some hover effects to buttons */
 .form-container .btn:hover,
 .open-button:hover {
-  opacity: 1; }
+  opacity: 1;
+}
 
 #trigger-location {
   background-color: 31.25%;
   display: block;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 /*# sourceMappingURL=style.css.map */

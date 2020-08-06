@@ -1,16 +1,19 @@
 <div class="profile">
 
 <div id="profile-menu">  {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -> PROFILE MENU <- --}}
-
       <div class="profpic"> {{!-- - - - - - - - - - - - - - - - - - - - - --> user profile picture <- --}}
           <img src="{{ user.photo }}" alt="profile-pic" id="pic">
       </div>
         
       <div class="buttons"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -> buttons <- --}}
-        <h3>Welcome back, {{ user.name }}.</h3>
+        <p>Welcome back, {{ user.name }}.</p>
         <section class="menu">
           {{#if isMyOwnMyProfile}}
-          <a href="/moment/create">Create Moment</a><br>
+          {{!-- <button type="button" class="btn btn-primary btn-sm">Create moment</button>
+          <button type="button" class="btn btn-primary btn-sm">Update profile</button>
+          <button type="button" class="btn btn-primary btn-sm">View all</button>
+          <button type="button" class="btn btn-primary btn-sm">Show more</button> --}}
+          <a href="/moment/create">Create Moment</a>
           <a href="/profile/edit">Update Profile</a>
           <a href="/profile/view-all">View All</a>
           <a href="/profile/placeholder">Show more</a>
@@ -21,13 +24,14 @@
 
 <div id="section-map"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - --> MAP SECTION <- --}}
 
-  <div class="flex-column">
-      <p>Your moments</p>     
+      <nav class="navbar navbar-light bg-light justify-content-between">
+        <p>Your moments</p>     
         <select name="moment-filter">
         <option type="text"  value="Amused"> Last Week </option>
         <option type="text"  value="Anxious"> Last Month </option>
         <option type="text"  value="Brave">  Last Year </option>
         </select>
+      </nav>
 
       <button id="trigger-location">Find moments near me</button>
      <div id="map-container"></div> {{!-- - - - - - - - - - - - - - - - - - - - - - - - -> map <- --}}
@@ -37,27 +41,14 @@
 <div class="section-moment"> {{!-- - - - - - - - - - - - - - - - - - - - - - - -> MOMENT PREVIEW <- --}}
 
     {{#each moments}}
-
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card d-flex flex-row border-0 m-3" style="width: 100%;" style="font-size: 12px">
+            <a href="/moment/{{_id}}"><img class="card-img-top" src="{{ photo }}" alt="{{ description }}"> </a>
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <h4 class="card-title">{{ description }}</h4>
+              <p class="card-text">{{ creator.name }} was feeling {{ feeling }}.</p>
+              <a href="/moment/{{_id}}" class="btn btn-primary">View the moment</a>
             </div>
         </div>
-
-
-
-          <div class="moment-img"> 
-              <a href="/moment/{{_id}}"><li><img src="{{ photo }}" alt="{{ description }}"></li> </a>
-          </div>
-          <div class="moment-preview">
-                <h2>{{ description }}</h2>
-                <p>{{ creator.name }} was {{ feeling }} in location</p>
-                <li>Experienced by {{ creator.name }}</li>
-                <button> <a href="/moment/{{_id}}">View the moment </a> </button>
-          </div>
     {{/each}}
 
 </div>
