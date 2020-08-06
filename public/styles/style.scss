@@ -94,24 +94,12 @@ textarea {
   resize: vertical;
 }
 
-#photos {
-  width: 50vw;
-  height: 50vh;
-}
-
 #profile {
   max-width: 300px;
   padding: 0.5em;
   font: inherit;
   color: inherit;
   background-color: transparent;
-}
-
-#map-container {
-  height: 50vh;
-  width: 100%;
-  display: block;
-  margin: 0 auto;
 }
 
 .buttons p {
@@ -234,6 +222,7 @@ textarea {
   margin-top: 20px;
 }
 
+<<<<<<< Updated upstream
 #user-moment-container img {
   height: 50;
   width: 100%;
@@ -243,6 +232,24 @@ textarea {
 #section-map p {
   font-size: 30px;
   font-weight: 200;
+=======
+// THIS WAS INTERUPTING OTHER CODE
+// a {
+//   color: $link-color;
+// }
+
+.container {
+  background-color: grey;
+  color: black;
+  text-align: center;
+  margin: 0;
+  padding: 15px;
+  max-width: 500px;
+}
+
+header {
+  text-align: center;
+>>>>>>> Stashed changes
 }
 
 // do u need this?
