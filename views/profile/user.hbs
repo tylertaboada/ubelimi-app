@@ -11,7 +11,7 @@
           {{#if isMyOwnMyProfile}}
           <a href="/moment/create">Create Moment</a>
           <a href="/profile/edit">Update Profile</a>
-          <a href="/profile/view-all">View All Moments</a>
+          <a href="/moment/view-all">View All Moments</a>
           <a href="/profile/placeholder">Show more</a>
         </section>
         {{/if}}
@@ -35,16 +35,19 @@
 
 <div class="section-moment"> {{!-- - - - - - - - - - - - - - - - - - - - - - - -> MOMENT PREVIEW <- --}}
 
-    {{#each moments}}
-        <div class="card d-flex flex-row border-0 m-3" style="width: 100%;" style="font-size: 12px">
-            <a href="/moment/{{_id}}"><img class="card-img-top" src="{{ photo }}" alt="{{ description }}"> </a>
-            <div class="card-body">
-              <h4 class="card-title">{{ description }}</h4>
-              <p class="card-text">{{ creator.name }} was feeling {{ feeling }}.</p>
-              <a href="/moment/{{_id}}" class="btn btn-primary">View the moment</a>
-            </div>
-        </div>
-    {{/each}}
+{{#each moments}}
+<div id="user-moment-container">
+    <div>
+         <a href="/moment/{{_id}}" > <img src="{{ photo }}" alt="{{ description }}"> </a>
+    </div>
+    <div id="moment-preview">
+         <h4 class="card-title">{{ description }}</h4>
+         <p class="card-text">{{ creator.name }} was feeling {{ feeling }}.</p>
+         <a href="/moment/{{_id}}">View the moment</a>
+    </div>
+</div>
+{{/each}}
+
 
 </div>
 

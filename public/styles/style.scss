@@ -94,6 +94,11 @@ textarea {
   resize: vertical;
 }
 
+#photos {
+  width: 50vw;
+  height: 50vh;
+}
+
 #profile {
   max-width: 300px;
   padding: 0.5em;
@@ -110,12 +115,12 @@ textarea {
 }
 
 .buttons p {
-  color: white;
+  color: black;
   margin-top: 1em;
   font-family: Lato;
   font-style: normal;
   font-weight: 600;
-  font-size: 1.25em;
+  font-size: 1.3em;
   line-height: normal;
 }
 
@@ -125,9 +130,10 @@ textarea {
 }
 
 .menu a {
-  background-color: #37393b;
+  background-color: black;
   color: white;
   font-size: 14px;
+  font-weight: 400;
   padding: 5px 10px 5px 10px;
   border-radius: 15px;
 }
@@ -136,15 +142,51 @@ textarea {
   display: flex;
   flex-direction: row;
   background-image: url('https://images.unsplash.com/photo-1561679421-8198208ad6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80');
-  background-position: bottom;
-  background-size: inherit;
+  background-position: top;
   background-repeat: no-repeat;
+}
+
+#user-moment-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: lightyellow;
+  border-radius: 15px;
+}
+
+#moment-preview {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#user-moment-container img {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
 }
 
 #section-map p {
   font-size: 16px;
 }
 
+<<<<<<< HEAD
+=======
+// THIS WAS INTERUPTING OTHER CODE
+// a {
+//   color: $link-color;
+// }
+
+.container {
+  background-color: grey;
+  color: black;
+  text-align: center;
+  margin: 0;
+  padding: 15px;
+  max-width: 500px;
+}
+
+>>>>>>> 966804a2e86870ba3c558730b0548a00daa9bb84
 header {
   text-align: center;
 }
@@ -170,8 +212,6 @@ header {
 }
 
 .card {
-  // display: flex;
-  // flex-direction: row;
   background-color: rgba(246, 232, 171, 0.482);
   font-size: 0.5em;
 }
