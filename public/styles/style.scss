@@ -142,9 +142,6 @@ textarea {
   margin: 0 auto;
 }
 
-$font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$link-color: #00b7ff;
-
 a {
   color: $link-color;
 }
@@ -203,11 +200,12 @@ header {
 ul {
   list-style-type: none;
 }
+
 #map-container {
   height: 50vh;
   width: 50vw;
   display: block;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 /* Button used to open the chat form - fixed at the bottom of the page */
