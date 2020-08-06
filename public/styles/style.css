@@ -72,7 +72,13 @@ textarea {
   padding: 0.5em;
   font: inherit;
   color: inherit;
+<<<<<<< HEAD
   background-color: transparent; }
+=======
+<<<<<<< Updated upstream
+  background-color: transparent;
+}
+>>>>>>> 9e741158452a0336b5e63f6d8d79299db4f57e84
 
 #signup-map-container {
   height: 30vh;
@@ -87,7 +93,16 @@ textarea {
   height: 50vh;
   width: 100%;
   display: block;
+<<<<<<< HEAD
   margin: 0 auto; }
+=======
+  margin: 0 auto;
+  margin: 20px auto;
+}
+=======
+  background-color: transparent; }
+>>>>>>> Stashed changes
+>>>>>>> 9e741158452a0336b5e63f6d8d79299db4f57e84
 
 .buttons p {
   color: white;
@@ -114,11 +129,21 @@ textarea {
   flex-direction: row;
   background-image: url("https://images.unsplash.com/photo-1561679421-8198208ad6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
   background-position: bottom;
+<<<<<<< Updated upstream
   background-size: inherit;
   background-repeat: no-repeat; }
 
+<<<<<<< HEAD
 #section-map p {
   font-size: 16px; }
+=======
+#section-map {
+  margin: 0 auto;
+}
+=======
+  background-size: inherit; }
+>>>>>>> Stashed changes
+>>>>>>> 9e741158452a0336b5e63f6d8d79299db4f57e84
 
 a {
   color: #00b7ff; }
@@ -173,12 +198,15 @@ ul {
   width: 50vw;
   display: block;
   margin: 20px auto; }
+<<<<<<< HEAD
 
 #map-user {
   height: 50vh;
   width: 100%;
   display: block;
   margin: 0 auto; }
+=======
+>>>>>>> 9e741158452a0336b5e63f6d8d79299db4f57e84
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
