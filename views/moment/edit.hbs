@@ -44,18 +44,20 @@
 
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION  --}}
 
-<p>Where are you?</p>
+<h6>Where was this?</h6>
 
 <div id="map-container"></div>  
 
-<label for="latitude-input">Latitude</label>
-  <input  id="latitude-input" type="text" placeholder="Latitude" name="latitude" value={{moment.location.coordinates.[0]}}>
+<label for="latitude-input"></label>
+  <input type="hidden" id="latitude-input" type="text" placeholder="Latitude" name="latitude" value={{moment.location.coordinates.[0]}}>
   
-  <label for="longitude-input">Longitude</label>
-  <input  id="longitude-input" type="text" placeholder="Longitude" name="longitude" value={{moment.location.coordinates.[1]}}> 
-
-<button>Ubelimi</button>
+  <label for="longitude-input"></label>
+  <input  type="hidden" id="longitude-input" type="text" placeholder="Longitude" name="longitude" value={{moment.location.coordinates.[1]}}> 
+ <button>Ubelimi</button>
 </form>
+
+
+
 
     <script>
   function init () {
