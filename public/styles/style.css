@@ -130,8 +130,13 @@ textarea {
   border-radius: 15px; }
 
 #moment-preview {
-  margin-top: 10px;
-  margin-left: 10px; }
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; }
+
+#moment-preview p {
+  font-size: 12px; }
 
 #user-moment-container img {
   height: 100%;
