@@ -38,7 +38,8 @@ nav {
   width: 30px; }
 
 #yellow-bg {
-  background-color: yellow; }
+  background-color: yellow;
+  height: 80px; }
 
 h1,
 h2,
@@ -209,6 +210,22 @@ textarea {
 #section-map p {
   font-size: 30px;
   font-weight: 200; }
+
+#about {
+  padding: 20px; }
+
+#dad-joke {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 100px;
+  color: black; }
+
+#dad-joke a {
+  background-color: black;
+  color: white;
+  padding: 1em; }
 
 .main {
   background-color: white;

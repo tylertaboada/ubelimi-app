@@ -54,6 +54,7 @@ nav {
 
 #yellow-bg {
   background-color: yellow;
+  height: 80px;
 }
 
 h1,
@@ -248,6 +249,30 @@ textarea {
 #section-map p {
   font-size: 30px;
   font-weight: 200;
+}
+
+#about {
+  padding: 20px;
+}
+
+#dad-joke {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 100px;
+  color: black;
+}
+
+// #dad-joke p {
+//   line-height: 2px;
+//   padding: 0px;
+// }
+
+#dad-joke a {
+  background-color: black;
+  color: white;
+  padding: 1em;
 }
 
 // do u need this?
