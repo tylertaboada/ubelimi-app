@@ -82,7 +82,7 @@
     const triggerLocationButton = document.getElementById('trigger-location');
      const latitudeInputElement = document.getElementById('latitude-input');
      const longitudeInputElement = document.getElementById('longitude-input');
-     triggerLocationButton.addEventListener('click', () => {
+      window.addEventListener('load', () => {
      window.navigator.geolocation.getCurrentPosition(position => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;

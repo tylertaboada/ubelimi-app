@@ -7,7 +7,7 @@
 
 <a href="/moment/create">Create New Moment</a>
 
-<button id="trigger-location">Where am I?</button>
+<button id="trigger-location">There you are, in Pink!</button>
 <div id="map-container"></div>
 
 {{#each moments}}
@@ -47,7 +47,7 @@
      const triggerLocationButton = document.getElementById('trigger-location');
      const latitudeInputElement = document.getElementById('latitude-input');
      const longitudeInputElement = document.getElementById('longitude-input');
-     triggerLocationButton.addEventListener('click', () => {
+     window.addEventListener('load', () => {
      window.navigator.geolocation.getCurrentPosition(position => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
@@ -85,7 +85,7 @@
   <input id="longitude-input" type="text" placeholder="Longitude" name="longitude">
       <label for="radius-input">Radius</label>
   <input id="radius-input" type="text" placeholder="Radius" name="radius" value="10000">
-<label for="msg"><b>Click Where am i button and Search!</b></label>
+<label for="msg"><b>Have Fun Exploring Moments!</b></label>
    <button class="search">Search</button>
   <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
