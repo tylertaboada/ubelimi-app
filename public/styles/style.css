@@ -13,19 +13,21 @@ a {
   color: inherit;
   text-decoration: none; }
 
+/*
 nav {
-  display: flex; }
-  nav a,
-  nav button {
+  display: flex;
+  a,
+  button {
     padding: 1em 0;
-    border: 0; }
-    nav a:not(:last-child),
-    nav button:not(:last-child) {
-      margin-right: 1em; }
-    nav a:first-child,
-    nav button:first-child {
-      margin-right: auto; }
-
+    border: 0;
+    &:not(:last-child) {
+      margin-right: 1em;
+    }
+    &:first-child {
+      margin-right: auto;
+    }
+  }
+}*/
 h1,
 h2,
 h3,
@@ -80,12 +82,6 @@ textarea {
 
 #map {
   height: 100%; }
-
-#map-container {
-  height: 50vh;
-  width: 50vw;
-  display: block;
-  margin: 20px auto; }
 
 .buttons h3 {
   color: white;
@@ -171,6 +167,12 @@ header {
 
 ul {
   list-style-type: none; }
+
+#map-container {
+  height: 50vh;
+  width: 50vw;
+  display: block;
+  margin: 20px auto; }
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {

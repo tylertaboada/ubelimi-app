@@ -23,6 +23,7 @@ a {
   text-decoration: none;
 }
 
+/*
 nav {
   display: flex;
   a,
@@ -36,7 +37,7 @@ nav {
       margin-right: auto;
     }
   }
-}
+}*/
 
 h1,
 h2,
@@ -86,23 +87,6 @@ textarea {
   font: inherit;
   color: inherit;
   background-color: transparent;
-}
-#signup-map-container {
-  height: 30vh;
-  width: 30vw;
-  display: block;
-  margin: 20px auto;
-}
-
-#map {
-  height: 100%;
-}
-
-#map-container {
-  height: 50vh;
-  width: 50vw;
-  display: block;
-  margin: 20px auto;
 }
 
 .buttons h3 {
@@ -205,6 +189,12 @@ header {
 
 ul {
   list-style-type: none;
+}
+#map-container {
+  height: 50vh;
+  width: 50vw;
+  display: block;
+  margin: 20px auto;
 }
 
 /* Button used to open the chat form - fixed at the bottom of the page */

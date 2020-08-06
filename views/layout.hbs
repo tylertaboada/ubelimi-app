@@ -10,17 +10,33 @@
   <body>
     <header>
     </header>
+
+    <!-- Just an image -->
+<nav class="navbar navbar-light bg-light">
+  <span class="d-flex flex-row">
+   <a class="navbar-brand" href="/">
+    <img src="/images/ubelimi-profile-pic.jpeg" width="30" height="30" alt="" loading="lazy">
+   </a>
+    <form action="/authentication/sign-out" method="POST">
+          <button>Sign Out </button>
+       </form>
+        <p class="nav item">
+        <a class="nav-link" href="/about">About</a>
+      </p>
+     
+</span>
+  
+</nav>
+
+
     <nav>
-      <a href="/"><img src="/images/preview.png" alt="Ubelimi" class="logo"></a> 
     
       {{#if user}}
 
-       <a href="/about">About</a>
+       
        <a href="/profile/{{ user.id }}">{{user.name}}'s Profile</a>
        <a href="/moment/view-all">View all Moments</a><br>
-       <form action="/authentication/sign-out" method="POST">
-          <button>Sign Out</button>
-       </form>
+       
        
       {{else}}
 
@@ -31,6 +47,11 @@
 
       {{/if}}
     </nav>
+
+
+
+
+
 
     {{{body}}}
 
