@@ -10,14 +10,14 @@
   <body>
     <header>
     </header>
-    <nav>
-      <a href="/"><img src="/images/preview.png" alt="Ubelimi" class="logo"></a> 
+    <nav class="main-menu">
+      <a href="/"><img src="/images/ubelimi_logo.png" alt="Ubelimi" class="logo"></a> 
     
       {{#if user}}
 
        <a href="/about">About</a>
        <a href="/profile/{{ user.id }}">{{user.name}}'s Profile</a>
-       <a href="/moment/view-all">View all Moments</a><br>
+       {{!-- <a href="/moment/view-all">View all Moments</a><br> --}}
        <form action="/authentication/sign-out" method="POST">
           <button>Sign Out</button>
        </form>

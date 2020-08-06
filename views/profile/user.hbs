@@ -9,13 +9,9 @@
         <p>Welcome back, {{ user.name }}.</p>
         <section class="menu">
           {{#if isMyOwnMyProfile}}
-          {{!-- <button type="button" class="btn btn-primary btn-sm">Create moment</button>
-          <button type="button" class="btn btn-primary btn-sm">Update profile</button>
-          <button type="button" class="btn btn-primary btn-sm">View all</button>
-          <button type="button" class="btn btn-primary btn-sm">Show more</button> --}}
           <a href="/moment/create">Create Moment</a>
           <a href="/profile/edit">Update Profile</a>
-          <a href="/profile/view-all">View All</a>
+          <a href="/profile/view-all">View All Moments</a>
           <a href="/profile/placeholder">Show more</a>
         </section>
         {{/if}}
@@ -24,7 +20,7 @@
 
 <div id="section-map"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - --> MAP SECTION <- --}}
 
-      <nav class="navbar navbar-light bg-light justify-content-between">
+      <nav class="navbar navbar-light justify-content-between">
         <p>Your moments</p>     
         <select name="moment-filter">
         <option type="text"  value="Amused"> Last Week </option>
@@ -32,8 +28,7 @@
         <option type="text"  value="Brave">  Last Year </option>
         </select>
       </nav>
-
-      <button id="trigger-location">Find moments near me</button>
+     {{!-- <button id="trigger-location">Find moments near me</button> --}}
      <div id="map-container"></div> {{!-- - - - - - - - - - - - - - - - - - - - - - - - -> map <- --}}
   </div>
 </div>
