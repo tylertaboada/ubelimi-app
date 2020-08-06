@@ -196,6 +196,13 @@ header {
   padding: 0;
 }
 
+.section-moment {
+  background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 ul {
   list-style-type: none;
 }

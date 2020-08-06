@@ -1,47 +1,26 @@
- <div class="profile">
-   
-<img src="{{ user.photo }}" alt="profile-pic" id="pic">
-{{#if isMyOwnMyProfile}}
-<h1>Welcome {{ user.name }}</h1>
- </div>
-<br>
-  <p> <span><strong>Email</strong>: {{ user.email }}</span> </p>
-<div class="bg">
- 
-  <nav>
-    <a href="/profile/edit">Edit Profile</a>
-<a href="/moment/create">Create New Moment</a><br>
- </nav>
-
- {{/if}}
- <button id="trigger-location">Where am I?</button>
-
 <div class="profile">
 
-<div id="profile-menu">  {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -> PROFILE MENU <- --}}
+<div id="profile-menu">  {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -> PROFILE MENU <- --}}
 
-    
-    <div class="profpic"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - -> user profile picture <- --}}
-      <img src="{{ user.photo }}" alt="profile-pic" id="pic">
-    </div>
-
-    
-  <div class="buttons"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -> buttons <- --}}
-    <h3>Welcome back, {{ user.name }}.</h3>
-    <section class="menu">
-      {{#if isMyOwnMyProfile}}
-      <a href="/moment/create">Create Moment</a><br>
-      <a href="/profile/edit">Update Profile</a>
-      <a href="/profile/view-all">View All</a>
-      <a href="/profile/placeholder">Show more</a>
-    </section>
-     {{/if}}
-  </div>
+      <div class="profpic"> {{!-- - - - - - - - - - - - - - - - - - - - - --> user profile picture <- --}}
+          <img src="{{ user.photo }}" alt="profile-pic" id="pic">
+      </div>
+        
+      <div class="buttons"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -> buttons <- --}}
+        <h3>Welcome back, {{ user.name }}.</h3>
+        <section class="menu">
+          {{#if isMyOwnMyProfile}}
+          <a href="/moment/create">Create Moment</a><br>
+          <a href="/profile/edit">Update Profile</a>
+          <a href="/profile/view-all">View All</a>
+          <a href="/profile/placeholder">Show more</a>
+        </section>
+        {{/if}}
+      </div>
 </div>
 
-<div id="section-map"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -> MAP SECTION <- --}}
+<div id="section-map"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - --> MAP SECTION <- --}}
 
-   {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -> moment filter <- --}}
   <div class="flex-column">
       <p>Your moments</p>     
         <select name="moment-filter">
@@ -49,20 +28,43 @@
         <option type="text"  value="Anxious"> Last Month </option>
         <option type="text"  value="Brave">  Last Year </option>
         </select>
+
+      <button id="trigger-location">Find moments near me</button>
+     <div id="map-container"></div> {{!-- - - - - - - - - - - - - - - - - - - - - - - - -> map <- --}}
   </div>
-<div id="map-container"></div>
 </div>
 
-<div class="section">
+<div class="section-moment"> {{!-- - - - - - - - - - - - - - - - - - - - - - - -> MOMENT PREVIEW <- --}}
 
     {{#each moments}}
-      {{> moment}}
-      {{/each}}
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+
+
+          <div class="moment-img"> 
+              <a href="/moment/{{_id}}"><li><img src="{{ photo }}" alt="{{ description }}"></li> </a>
+          </div>
+          <div class="moment-preview">
+                <h2>{{ description }}</h2>
+                <p>{{ creator.name }} was {{ feeling }} in location</p>
+                <li>Experienced by {{ creator.name }}</li>
+                <button> <a href="/moment/{{_id}}">View the moment </a> </button>
+          </div>
+    {{/each}}
 
 </div>
-  
+
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -> MAP SCRIPT <- --}}
 <script>
-  
   function init () {
     const mapContainerElement = document.getElementById('map-container');
     const map = new window.google.maps.Map(mapContainerElement, {
@@ -115,8 +117,8 @@
      
 }
 </script>
+{{> mapscript}}
 
-        {{> mapscript}}
 
 
 

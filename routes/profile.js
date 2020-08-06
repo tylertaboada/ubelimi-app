@@ -16,8 +16,8 @@ profileRouter.get('/', routeGuard, (req, res, next) => {
   const isMyOwnMyProfile = true;
   Moment.find({ creator: req.session.passport.user })
     .populate('creator')
-    .then(moment => {
-      res.render('profile/user', { moment, isMyOwnMyProfile });
+    .then(moments => {
+      res.render('profile/user', { moments, isMyOwnMyProfile });
     })
     .catch(error => {
       next(error);
@@ -37,22 +37,27 @@ profileRouter.get('/edit', routeGuard, (req, res, next) => {
   res.render('profile/edit');
 });
 
-profileRouter.post('/edit', routeGuard, upload.single('photo'), (req, res, next) => {
-  const id = req.session.passport.user;
-  const { name, email } = req.body;
-  let url;
-  if (req.file) {
-    url = req.file.path;
-  }
+profileRouter.post(
+  '/edit',
+  routeGuard,
+  upload.single('photo'),
+  (req, res, next) => {
+    const id = req.session.passport.user;
+    const { name, email } = req.body;
+    let url;
+    if (req.file) {
+      url = req.file.path;
+    }
 
-  User.findByIdAndUpdate(id, { name, email, photo: url })
-    .then(() => {
-      res.redirect('/profile');
-    })
-    .catch(error => {
-      next(error);
-    });
-});
+    User.findByIdAndUpdate(id, { name, email, photo: url })
+      .then(() => {
+        res.redirect('/profile');
+      })
+      .catch(error => {
+        next(error);
+      });
+  }
+);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > VIEW PROFILE
 
 profileRouter.get('/:id', routeGuard, (req, res, next) => {
