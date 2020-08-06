@@ -1,15 +1,18 @@
-<div class="bg">
+<div class="single-moment-view">
 
 
-<h1>Single Moment</h1>
-
+<h2>{{ moment.description }}</h2>
 <span>Experienced by <a href="/profile/{{ moment.creator._id }}">{{ moment.creator.name }}</a></span>
+{{#if moment.photo}}
+    <img src="{{moment.photo}}" id="photos"/>
+{{/if}} 
+
+</div>
+<div>
+
+
 <div id="map-container"></div>
 <div class="moment">
-  {{#if moment.photo}}
-    <img src="{{moment.photo}}" id="photos"/>
-  {{/if}} 
-  <h2>{{ moment.description }}</h2>
   <h3> {{ user.name }} is feeling {{ moment.feeling }}  </h3>
   <p>{{ moment.learning }}</p>
   <p>{{ moment.gratitude }}</p>

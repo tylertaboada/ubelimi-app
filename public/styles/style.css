@@ -123,13 +123,34 @@ textarea {
   background-repeat: no-repeat;
   height: 150px; }
 
+#homescreen {
+  display: flex;
+  flex-direction: row;
+  background-image: url("https://images.unsplash.com/photo-1491609154219-ffd3ffafd992?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+  height: 750px; }
+
+#homescreen h1 {
+  color: black;
+  font-size: 5em; }
+
+#home-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%; }
+
+#home-buttons button {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  line-height: 15px;
+  font-size: 20px; }
+
 #view-all-menu {
   display: flex;
   flex-direction: row;
   background-image: url("https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
-  background-position: bottom;
   background-repeat: no-repeat;
-  justify-content: center;
   height: 150px; }
 
 #view-all-menu h3 {
