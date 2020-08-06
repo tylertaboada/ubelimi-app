@@ -76,22 +76,12 @@ textarea {
   min-height: 8em;
   resize: vertical; }
 
-#photos {
-  width: 50vw;
-  height: 50vh; }
-
 #profile {
   max-width: 300px;
   padding: 0.5em;
   font: inherit;
   color: inherit;
   background-color: transparent; }
-
-#map-container {
-  height: 50vh;
-  width: 100%;
-  display: block;
-  margin: 0 auto; }
 
 .buttons p {
   color: black;
@@ -205,6 +195,24 @@ textarea {
 #section-map p {
   font-size: 30px;
   font-weight: 200; }
+
+#about {
+  padding: 20px; }
+
+#dad-joke {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-content: center; }
+
+#dad-joke p {
+  line-height: 16px;
+  padding: 15px; }
+
+#dad-joke a {
+  background-color: black;
+  color: white;
+  padding: 1em; }
 
 .main {
   background-color: white;
