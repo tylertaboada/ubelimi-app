@@ -37,3 +37,5 @@ node_modules
 
 # next.js build output
 .next
+.css
+.css.map

@@ -13,8 +13,17 @@
 </a>
 
 {{/each}}
-
 </div>
+
+{{! muted coordinates for navigator geolocation }}
+<label for="latitude-input"></label>
+  <input type="hidden" id="latitude-input" type="text" placeholder="Latitude" name="latitude">
+  
+  <label for="longitude-input"></label>
+  <input  type="hidden" id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
+
+
+  
 <script>
   function init () {
     const mapContainerElement = document.getElementById('map-container');
@@ -42,6 +51,29 @@
         window.location = endpoint;
       });
     }
+
+    const triggerLocationButton = document.getElementById('trigger-location');
+     const latitudeInputElement = document.getElementById('latitude-input');
+     const longitudeInputElement = document.getElementById('longitude-input');
+      window.addEventListener('load', () => {
+     window.navigator.geolocation.getCurrentPosition(position => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      latitudeInputElement.value = latitude;
+      longitudeInputElement.value = longitude;
+      const marker = new window.google.maps.Marker({
+        map,
+        position:{
+        lat: latitude, 
+        lng: longitude
+        },
+        icon: { url: "http://maps.google.com/mapfiles/ms/icons/pink-dot.png"  }
+      });
+     } , error => {
+      console.log(error);
+     })
+    });
+     
   }
 
 </script>

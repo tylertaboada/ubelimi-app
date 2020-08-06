@@ -52,6 +52,10 @@ nav {
   width: 30px;
 }
 
+#yellow-bg {
+  background-color: yellow;
+}
+
 h1,
 h2,
 h3,
@@ -61,6 +65,19 @@ p {
   &:not(:last-child) {
     margin-bottom: 1rem;
   }
+}
+
+#jokes {
+  display: flex;
+  align-items: center;
+  margin: 150px 90px;
+}
+
+#jokes .btn {
+  display: inline-block;
+  margin-right: 200px;
+  color: grayscale($color: #000000);
+  font-size: 12px;
 }
 
 img {

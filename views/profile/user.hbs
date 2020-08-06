@@ -54,6 +54,12 @@
   <a href="#profile-menu">Back to top</a>
 </div>
 
+{{! muted coordinates for navigator geolocation }}
+<label for="latitude-input"></label>
+  <input type="hidden" id="latitude-input" type="text" placeholder="Latitude" name="latitude">
+  
+  <label for="longitude-input"></label>
+  <input  type="hidden" id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -> MAP SCRIPT <- --}}
 <script>
   function init () {
