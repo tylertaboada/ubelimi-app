@@ -1,37 +1,32 @@
 <div id="view-all">
 
+  <div id="view-all-menu">  {{!-- - - - - - - - - - - - - - - - - - - -> VIEW ALL MENU <- --}}
+          <h3>Let moments happen.</h3>
+  </div>
+         <div class="">
+           <a href="/moment/create">Create New Moment</a>
+         </div>
 
-      <div id="view-all-menu">  {{!-- - - - - - - - - - - - - - - - - - - -> VIEW ALL MENU <- --}}
-            <div class=""> 
-                <h3>Do Ubelimi Moments!!!</h3>
-            </div>
-              
-            <div class="">
-              <a href="/moment/create">Create New Moment</a>
-            </div>
-      </div>
-
-
-      <div id="view-all-map">  {{!-- - - - - - - - - - - - - - - - - - - - - - - - - -> MAP <- --}}
-            <button id="trigger-location">There you are, in Pink!</button>
-            <div id="map-container"></div>
-      </div>
+  <div id="view-all-map">  {{!-- - - - - - - - - - - - - - - - - - - - - - - - - -> MAP <- --}}
+        <button id="trigger-location">See what's happening around you.</button>
+        <div id="map-viewall"></div>
+  </div>
 
 
-      <div class="section-moment"> {{!-- - - - - - - - - - - - - - - - - - -> MOMENT PREVIEW <- --}}
-            {{#each moments}}
-                  <div id="user-moment-container">
-                        <div>
-                            <a href="/moment/{{_id}}" > <img src="{{ photo }}" alt="{{ description }}"></a>
-                        </div>
-                        <div id="moment-preview">
-                            <h4 class="card-title">{{ description }}</h4>
-                            <p class="card-text">📍 {{ creator.name }} was feeling {{ feeling }}.</p>
-                            <a href="/moment/{{_id}}">View the moment</a>
-                        </div>
+  <div class="section-moment"> {{!-- - - - - - - - - - - - - - - - - - -> MOMENT PREVIEW <- --}}
+       {{#each moments}}
+             <div id="user-moment-container">
+                   <div>
+                       <a href="/moment/{{_id}}" > <img src="{{ photo }}" alt="{{ description }}"></a>
                   </div>
-            {{/each}}
-        </div>
+                   <div id="moment-preview">
+                       <h4 class="card-title">{{ description }}</h4>
+                       <p class="card-text">📍 {{ creator.name }} was feeling {{ feeling }}.</p>
+                       <a href="/moment/{{_id}}">View the moment</a>
+                   </div>
+             </div>
+        {{/each}}
+   </div>
 
           <div id="scroll-up-button"> {{!-- - - - - - - - - - - - - - - - - -> SCROLL SECTION <- --}}
             <a href="#profile-menu">Back to top</a>
@@ -42,7 +37,7 @@
 <script>
   
   function init () {
-    const mapContainerElement = document.getElementById('map-container');
+    const mapContainerElement = document.getElementById('map-viewall');
     const map = new window.google.maps.Map(mapContainerElement, {
       center: {
         lat: 38.75,

@@ -109,24 +109,34 @@ textarea {
 .menu a {
   background-color: black;
   color: white;
-  font-size: 14px;
+  font-size: 0.8em;
   font-weight: 400;
   padding: 5px 10px 5px 10px;
+  margin-right: 5px;
   border-radius: 15px; }
 
 #profile-menu {
   display: flex;
   flex-direction: row;
   background-image: url("https://images.unsplash.com/photo-1561679421-8198208ad6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
-  background-position: top;
-  background-repeat: no-repeat; }
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 150px; }
 
 #view-all-menu {
   display: flex;
   flex-direction: row;
-  background-image: url("https://images.unsplash.com/photo-1561679421-8198208ad6c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
-  background-position: top;
-  background-repeat: no-repeat; }
+  background-image: url("https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  justify-content: center;
+  height: 150px; }
+
+#view-all-menu h3 {
+  color: white;
+  display: block;
+  text-align: center;
+  line-height: 150px; }
 
 #user-moment-container {
   display: flex;
@@ -153,7 +163,7 @@ textarea {
   margin-top: 20px; }
 
 #user-moment-container img {
-  height: 225px;
+  height: 50;
   width: 100%;
   border-radius: 15px; }
 
@@ -194,6 +204,12 @@ ul {
   margin: 0 auto; }
 
 #map-user {
+  height: 50vh;
+  width: 100%;
+  display: block;
+  margin: 0 auto; }
+
+#map-viewall {
   height: 50vh;
   width: 100%;
   display: block;
