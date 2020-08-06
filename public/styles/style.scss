@@ -153,20 +153,53 @@ textarea {
   height: 150px;
 }
 
+#homescreen {
+  display: flex;
+  flex-direction: row;
+  background-image: url('https://images.unsplash.com/photo-1491609154219-ffd3ffafd992?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
+  height: 750px;
+}
+
+#homescreen h1 {
+  color: black;
+  font-size: 5em;
+}
+
+#home-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+}
+
+#home-buttons button {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  line-height: 15px;
+  font-size: 20px;
+}
+
 #view-all-menu {
   display: flex;
   flex-direction: row;
   background-image: url('https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
-  background-position: bottom;
   background-repeat: no-repeat;
-  justify-content: center;
   height: 150px;
 }
 #view-all-menu h3 {
   color: white;
   display: block;
   text-align: center;
-  line-height: 150px;
+}
+
+#single-moment-description {
+  background-color: salmon;
+  color: white;
+  font-size: 1.75em;
+  text-align: left;
+  padding-left: 0.75em;
+  line-height: 60px;
 }
 
 #user-moment-container {
@@ -176,6 +209,15 @@ textarea {
   margin-bottom: 10px;
   background-color: lightyellow;
   border-radius: 15px;
+}
+
+#single-moment-photo {
+  width: 75%;
+  height: 300px;
+}
+
+#single-moment-content {
+  background-color: lightyellow;
 }
 
 #moment-preview {
@@ -259,6 +301,19 @@ ul {
   width: 100%;
   display: block;
   margin: 0 auto;
+}
+
+#map-single {
+  height: 41vh;
+  width: 30%;
+  display: block;
+  margin: 0 auto;
+}
+
+#photo-map {
+  display: flex;
+  justify-content: center;
+  height: 300px;
 }
 
 /* Button used to open the chat form - fixed at the bottom of the page */
