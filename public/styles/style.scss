@@ -138,8 +138,8 @@ textarea {
   background-repeat: no-repeat;
 }
 
-#section-map {
-  margin: 0 auto;
+#section-map p {
+  font-size: 16px;
 }
 
 $font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -208,6 +208,13 @@ ul {
   width: 50vw;
   display: block;
   margin: 20px auto;
+}
+
+#map-user {
+  height: 50vh;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Button used to open the chat form - fixed at the bottom of the page */

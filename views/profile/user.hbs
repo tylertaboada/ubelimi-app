@@ -29,7 +29,7 @@
         </select>
       </nav>
      {{!-- <button id="trigger-location">Find moments near me</button> --}}
-     <div id="map-container"></div> {{!-- - - - - - - - - - - - - - - - - - - - - - - - -> map <- --}}
+     <div id="map-user"></div> {{!-- - - - - - - - - - - - - - - - - - - - - - - - -> map <- --}}
   </div>
 </div>
 
@@ -52,7 +52,7 @@
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -> MAP SCRIPT <- --}}
 <script>
   function init () {
-    const mapContainerElement = document.getElementById('map-container');
+    const mapContainerElement = document.getElementById('map-user');
     const map = new window.google.maps.Map(mapContainerElement, {
       center: {
         lat: 38.75,
