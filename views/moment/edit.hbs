@@ -1,67 +1,75 @@
-<div class="container">
 
+<div class="container"> 
 <div id="yellow-bg">
 <h4>☝️ Caution: You're editing history.</h4>
 </div>
 
+ <form method="POST" enctype="multipart/form-data"> 
+  <div class="row bg-light border-0 shadow m-0 p-0"> 
+   <div class="col-sm-6  m-0 p-0">
+    <div class="card bg-light">
+     <div class="card-body">
+       {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > FEELING <- --}}
+        <p  class="card-title">How are you feeling</h5>
+            <select name="feeling">
+              <option>{{ moment.feeling }}</option>
+             <option type="text"  value="Amused"> Amused </option>
+             <option type="text"  value="Anxious"> Anxious </option>
+             <option type="text"  value="Brave">  Brave</option>
+             <option type="text"  value="Happy">  Happy</option>
+             <option type="text"  value="Inspired"> Inspired </option>
+             <option type="text"  value="Loved"> Loved </option>
+             <option type="text"  value="Relaxed">  Relaxed</option>
+             <option type="text"  value="Upset">  Upset</option>
+            </select>
+          <h5 class="card-text"> 
+          {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > DESCRIPTION <- --}}
 
-<form method="POST" enctype="multipart/form-data">
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > FEELING <- --}}
-
-<p>How are you feeling?</p>
-<select name="feeling">
- <option>{{ moment.feeling }}</option>
- <option type="text"  value="Amused"> Amused </option>
- <option type="text"  value="Anxious"> Anxious </option>
- <option type="text"  value="Brave">  Brave</option>
- <option type="text"  value="Happy">  Happy</option>
- <option type="text"  value="Inspired"> Inspired </option>
- <option type="text"  value="Loved"> Loved </option>
- <option type="text"  value="Relaxed">  Relaxed</option>
- <option type="text"  value="Upset">  Upset</option>
-</select>
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > DESCRIPTION <- --}}
-
-  <label for="description-input">Describe the moment in three words:</label>
-  <input id="description-input" type="text" placeholder="Funny, Memorable, Sunset" value="{{ moment.description }}" name="description">
-
-
+      <label for="description-input">Describe the moment in three words:</label> <br>
+     <input id="description-input" type="text" placeholder="Funny, Memorable, Sunset" value="{{ moment.description }}" name="description" minlength="10" maxlength="100"></h5>
+      {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION <- --}}
+      <h5 class="card-text">Where?...search on map! </h5>
+     </div>
+    </div>
+   </div> 
   
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LEARNING <- --}}
+    <div class="card" id="map-container">  </div> 
+       <label for="latitude-input"></label>
+       <input type="hidden" id="latitude-input" type="text" placeholder="Latitude" name="latitude"  value={{moment.location.coordinates.[0]}}>
+  
+        <label for="longitude-input"></label>
+        <input  type="hidden" id="longitude-input" type="text" placeholder="Longitude" name="longitude" value={{moment.location.coordinates.[1]}}> 
+   </div>
 
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LEARNING <- --}}
   <label for="learning-input">What did you learn in this moment?</label>
-  <input id="learning-input" type="text" placeholder="I learned to dust off my ass and keep moving...." value="{{ moment.learning }}" name="learning">
+
+  <input id="learning-input" type="text" placeholder="I learned to dust off my ass and keep moving."  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value="{{ moment.learning }}" name="learning"  minlength="3" maxlength="100">
 
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > GRATITUDE <- --}}
 
   <label for="gratitude-input">What are you grateful for in this moment?</label>
-  <input id="gratitude-input" type="text" placeholder="I am grateful for ...." value="{{ moment.gratitude }}" name="gratitude">
+  <input id="gratitude-input" type="text" placeholder="I am grateful for this moment!"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="gratitude"   value="{{ moment.gratitude }}" minlength="3" maxlength="100">
 
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE  --}}
-  <p>Capture the moment:</p>
-  <img src="{{moment.photo}}" alt="Moment Photo">
-  <input type="file" name="photo">
-
-
-
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION  --}}
-
-<h6>Where was this?</h6>
-
-<div id="map-container"></div>  
-
-<label for="latitude-input"></label>
-  <input type="hidden" id="latitude-input" type="text" placeholder="Latitude" name="latitude" value={{moment.location.coordinates.[0]}}>
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE <- --}}
+  <div class="d-flex justify-content-space-between">
+  <h4> <b>  Capture the moment: </b></h4>
+    <img src="{{moment.photo}}" alt="Moment Photo">
+  <input class="fil" type="file" name="photo">
+</div>
   
-  <label for="longitude-input"></label>
-  <input  type="hidden" id="longitude-input" type="text" placeholder="Longitude" name="longitude" value={{moment.location.coordinates.[1]}}> 
- <button>Ubelimi</button>
+  <button>Ubelimi</button>
+
 </form>
 
 </div>
+
+
+
+
+
+
+
 
 
     <script>

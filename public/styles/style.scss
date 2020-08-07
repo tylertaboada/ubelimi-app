@@ -541,6 +541,15 @@ li {
   margin: 0;
 }
 
+#yellow-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  height: 80px;
+  margin: 0;
+}
+
 /* Add styles to the form container */
 .form-container {
   max-width: 300px;
