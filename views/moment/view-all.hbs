@@ -1,12 +1,18 @@
 <div id="view-all">
 
   <div id="view-all-menu">  {{!-- - - - - - - - - - - - - - - - - - - -> VIEW ALL MENU <- --}}
-         
-          <button class="btn btn-success" id="trigger-location">Moments!</button>
-         
           <h3>Let moments happen.</h3>
   </div>
 
+         <div class="">    {{!--> *******NEEDS UPDATING****** <--}}
+           <a href="/moment/create">Create New Moment</a>
+         </div>
+      
+       {{!-- WHAT IS THIS FOR? --}}
+      {{!-- <button class="btn btn-success" id="trigger-location">Moments!</button> --}}
+
+  <div id="view-all-map" class="m-2 border-1 shadow" >  {{!-- - - - - - - - - - - - - - - - - - - - - - - - - -> MAP <- --}}
+        
       <nav class="navbar navbar-light justify-content-between">
         <p>All moments</p>     
         <select name="moment-filter">
@@ -16,12 +22,6 @@
         </select>
       </nav>
 
-               <div class="">    {{!--> *******NEEDS UPDATING****** <--}}
-           <a href="/moment/create">Create New Moment</a>
-         </div>
-
-  <div id="view-all-map" class="m-2 border-1 shadow" >  {{!-- - - - - - - - - - - - - - - - - - - - - - - - - -> MAP <- --}}
-       
         <div id="map-viewall"></div>
   </div>
 

@@ -13,7 +13,7 @@
       <div id="map-single"></div>
 
     </div> 
-
+    <p>{{ user.name }} was feeling {{ moment.feeling }}.</p>
     <div id="single-moment-content">
         {{!-- <h3> {{ user.name }} is feeling {{ moment.feeling }}  </h3> --}}
         <p>🧠  {{ moment.learning }}</p>
@@ -24,9 +24,11 @@
 
             {{#if isMyOwnMyProfile }}
       <div id="edit-delete">
-            <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
+              <form action="/moment/{{ moment.id }}/edit"> 
+                 <button class="edit-button">Edit Moment</button>
+              </form>
               <form action="/moment/{{ moment.id }}/delete" method="POST"> 
-                 <button>Delete Moment</button>
+                 <button class="delete-button">Delete Moment</button>
               </form>
               {{/if}}
       </div>
