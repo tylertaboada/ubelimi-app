@@ -98,7 +98,13 @@ momentRouter.get('/:id', async (req, res, next) => {
   try {
     const moment = await Moment.findById(id).populate('creator');
     if (moment) {
-      res.render('moment/single', { moment: moment });
+      let isMyOwnMyProfile = false;
+
+      if (moment.creator._id == req.session.passport.user) {
+        isMyOwnMyProfile = true;
+      }
+
+      res.render('moment/single', { moment: moment, isMyOwnMyProfile });
     } else {
       next();
     }
@@ -110,13 +116,7 @@ momentRouter.get('/:id', async (req, res, next) => {
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > DELETE
 
 momentRouter.post('/:id/delete', routeGuard, (req, res, next) => {
-  // let isMyOwnMyProfile = false;
-  // const id = req.params.id;
-  // let user;
-
-  // if (id === req.session.passport.user) {
-  //   isMyOwnMyProfile = true;
-  // }
+  const id = req.params.id;
 
   Moment.findByIdAndDelete(id)
     .then(() => {
