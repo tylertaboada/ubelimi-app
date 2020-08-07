@@ -531,6 +531,15 @@ li {
   border: 1px solid #f1f1f1;
 }
 
+.create-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #acd4cf;
+  height: 80px;
+  margin: 0;
+}
+
 /* Add styles to the form container */
 .form-container {
   max-width: 300px;

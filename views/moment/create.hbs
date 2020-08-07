@@ -1,13 +1,11 @@
 
 <div class="container"> 
-
-
-<h1>🚀 Create a moment, make history.</h1>
-
-
+<div class="create-bar">
+<h4>🚀 Create a moment, make history.</h4>
+</div>
 
 <div class="row bg-light border-0 shadow m-0 p-0">
-  <form method="POST" enctype="multipart/form-data"></form>
+  <form action="/moment/create" method="POST" enctype="multipart/form-data">
   <div class="col-sm-6  m-0 p-0">
     <div class="card bg-light">
      <div class="card-body">
@@ -31,41 +29,36 @@
   {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION <- --}}
  <h5 class="card-text">Where?...search on map! </h5>
   <input id="pac-input" class="controls" type="text" placeholder="Locate this Moment"/>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
      </div>
     </div>
    </div> 
   <div class="col-sm-6  m-0 p-0">
     <div class="card shadow" id="map"> 
-       <label for="latitude-input"></label>
-       <input type="hidden"   id="latitude-input" type="text" placeholder="Latitude" name="latitude">
-  
-        <label for="longitude-input"></label>
-        <input  type="hidden"  id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
+      
        
     
      </div> 
    </div>
 </div>
-
-
-
-
-
+ <label for="latitude-input"></label>
+       <input {{!type="hidden"}} id="latitude-input" type="text" placeholder="Latitude" name="latitude">
+  
+        <label for="longitude-input"></label>
+        <input  {{!type="hidden"}} id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LEARNING <- --}}
-
   <label for="learning-input">What did you learn in this moment?</label>
-  <input id="learning-input" type="text" placeholder="I learned to dust off my ass and keep moving." name="learning"  minlength="3" maxlength="100">
+
+  <input id="learning-input" type="text" placeholder="I learned to dust off my ass and keep moving."  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="learning"  minlength="3" maxlength="100">
 
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > GRATITUDE <- --}}
 
   <label for="gratitude-input">What are you grateful for in this moment?</label>
-  <input id="gratitude-input" type="text" placeholder="I am grateful for this moment!" name="gratitude"  minlength="3" maxlength="100">
+  <input id="gratitude-input" type="text" placeholder="I am grateful for this moment!"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="gratitude"  minlength="3" maxlength="100">
 
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE <- --}}
-  <div>
-  <p>Capture the moment:</p>
-  <input type="file" name="photo">
+  <div class="d-flex justify-content-space-between">
+  <h4> <b>  Capture the moment: </b></h4>
+  <input class="fil" type="file" name="photo">
 </div>
   
 
@@ -86,8 +79,7 @@
     mapTypeId: "roadmap"
     });
     
-    const latitudeInputElement = document.getElementById('latitude-input');
-    const longitudeInputElement = document.getElementById('longitude-input');
+    
     const input = document.getElementById("pac-input");
     const searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
@@ -122,6 +114,10 @@
  
   
     let marker;
+     const latitudeInputElement = document.getElementById('latitude-input');
+     console.log(latitudeInputElement)
+    const longitudeInputElement = document.getElementById('longitude-input');
+    console.log(longitudeInputElement)
     map.addListener('click', event => {
       const latitude = event.latLng.lat();
       const longitude = event.latLng.lng();
