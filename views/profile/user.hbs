@@ -6,7 +6,7 @@
       </div>
         
       <div class="buttons"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -> buttons <- --}}
-        <h3>Welcome, {{ user.name }}.</h3>
+        <p>Welcome, {{ user.name }}.</p>
         <section class="menu">
           {{#if isMyOwnMyProfile}}
           <a href="/moment/create">Create Moment</a>
@@ -20,7 +20,7 @@
 
 <div id="section-map"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - --> MAP SECTION <- --}}
 
-      <nav class="navbar navbar-light justify-content-between">
+      <nav class="navbar navbar-light justify-content-between" id="navbar-drop">
         <p>Your moments</p>     
         <select name="moment-filter">
         <option type="text"  value="Amused"> This Week </option>

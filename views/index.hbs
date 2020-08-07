@@ -1,7 +1,19 @@
+<div class="container m-0 p-0">
+
+
 <div id="homescreen">
 
 
-      <div id="home-buttons">
+
+   {{#if user}}
+
+            <div id="main-ubelimi">
+                  <p id="ubelimi-joke"> {{joke}} </p>
+                  <a href="/">Ubelimi?</a> 
+            </div>
+
+   {{else }}
+         <div id="home-buttons">
 
             <div id="main-ubelimi">
             <h1> Ubelimi </h1>
@@ -16,5 +28,8 @@
             <button> <span> </span> Log In </button>
             </form>
       </div>
+   {{/if }}
+
+</div>
 
 </div>
