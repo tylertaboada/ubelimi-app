@@ -18,13 +18,8 @@ nav {
   nav a,
   nav button {
     padding: 1em 0;
-    border: 0; }
-    nav a:not(:last-child),
-    nav button:not(:last-child) {
-      margin-right: 1em; }
-    nav a:first-child,
-    nav button:first-child {
-      margin-right: auto; }
+    border: 0;
+    margin-right: 1em; }
 
 .nav-form {
   flex-direction: row; }
@@ -131,11 +126,10 @@ textarea {
   background-repeat: no-repeat;
   height: 150px; }
 
-#profile-menu p {
+#profile-menu h3 {
   color: white;
-  letter-spacing: 1.25px;
-  font-weight: normal;
-  font-size: 1.5em; }
+  margin-top: 1em;
+  line-height: 0.5em; }
 
 #homescreen {
   display: flex;
@@ -278,7 +272,7 @@ textarea {
   border: none; }
 
 #edit-delete .delete-button {
-  background-color: #white;
+  background-color: white;
   color: #f05f6a;
   font-size: 1em;
   padding: 5px;

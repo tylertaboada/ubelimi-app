@@ -29,12 +29,7 @@ nav {
   button {
     padding: 1em 0;
     border: 0;
-    &:not(:last-child) {
-      margin-right: 1em;
-    }
-    &:first-child {
-      margin-right: auto;
-    }
+    margin-right: 1em;
   }
 }
 
@@ -156,11 +151,10 @@ textarea {
   background-repeat: no-repeat;
   height: 150px;
 }
-#profile-menu p {
+#profile-menu h3 {
   color: white;
-  letter-spacing: 1.25px;
-  font-weight: normal;
-  font-size: 1.5em;
+  margin-top: 1em;
+  line-height: 0.5em;
 }
 
 #homescreen {
@@ -325,7 +319,7 @@ textarea {
 }
 
 #edit-delete .delete-button {
-  background-color: #white;
+  background-color: white;
   color: #f05f6a;
   font-size: 1em;
   padding: 5px;
