@@ -12,6 +12,10 @@ router.get('/about', (req, res, next) => {
   res.render('about', { title: 'Ubelimi' });
 });
 
+router.get('/test', (req, res, next) => {
+  res.render('test', { title: 'Ubelimi' });
+});
+
 router.get('/error', async (req, res, next) => {
   const jokeData = await axios.get('https://icanhazdadjoke.com/', {
     headers: {

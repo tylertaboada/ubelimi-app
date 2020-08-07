@@ -254,10 +254,6 @@ textarea {
   color: white;
   padding: 1em; }
 
-.main {
-  background-color: white;
-  font-size: 0.5em; }
-
 .logo {
   position: relative;
   right: 15px;
@@ -375,5 +371,91 @@ ul {
   background-color: 31.25%;
   display: block;
   margin: 0 auto; }
+
+/* Add styles to search map */
+#map {
+  height: 100%; }
+
+/* Optional: Makes the sample page fill the window. */
+#map {
+  width: 50vw;
+  height: 50vh;
+  display: block;
+  margin: 0 auto; }
+
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300; }
+
+#infowindow-content .title {
+  font-weight: bold; }
+
+#infowindow-content {
+  display: none; }
+
+#map #infowindow-content {
+  display: inline; }
+
+.pac-card {
+  margin: 20px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto; }
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px; }
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px; }
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300; }
+
+.container-abt {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 100px; }
+
+.abt {
+  height: 40px;
+  background-color: red;
+  text-align: center;
+  padding: 5px;
+  font-size: 15px;
+  width: 100px; }
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  margin-top: 10px;
+  height: 41px;
+  padding: 5px 11px 5px 13px;
+  text-overflow: ellipsis;
+  width: 350px; }
+
+#pac-input:focus {
+  border-color: #4d90fe; }
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px; }
+
+#target {
+  width: 345px; }
 
 /*# sourceMappingURL=style.css.map */
