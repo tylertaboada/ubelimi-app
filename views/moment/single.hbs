@@ -13,11 +13,9 @@
       <div id="map-single"></div>
 
     </div> 
-    <p>{{ user.name }} was feeling {{ moment.feeling }}.</p>
     <div id="single-moment-content">
         {{!-- <h3> {{ user.name }} is feeling {{ moment.feeling }}  </h3> --}}
-        <p>🧠  {{ moment.learning }}</p>
-        <p>💙  {{ moment.gratitude }}</p>
+        <p>At this moment, {{ user.name }} was feeling {{ moment.feeling }}. {{ user.name }} says "{{ moment.learning }} {{ moment.gratitude }}"" What a moment! Ubelimi?</p>
         {{!-- <p> {{ moment.location.coordinates.[1] }}</p>
         <p> {{ moment.location.coordinates.[0] }}</p> --}}
     </div>
@@ -31,6 +29,15 @@
                  <button class="delete-button">Delete Moment</button>
               </form>
               {{/if}}
+      </div>
+
+      <div id="go-back-button">
+            <button onclick="goBack()">Go Back</button>
+            <script>
+            function goBack() {
+              window.history.back();
+            }
+            </script>
       </div>
 
 </div>

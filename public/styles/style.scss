@@ -156,6 +156,12 @@ textarea {
   background-repeat: no-repeat;
   height: 150px;
 }
+#profile-menu p {
+  color: white;
+  letter-spacing: 1.25px;
+  font-weight: normal;
+  font-size: 1.5em;
+}
 
 #homescreen {
   display: flex;
@@ -168,6 +174,8 @@ textarea {
 #homescreen h1 {
   color: black;
   font-size: 5em;
+  font-weight: 500;
+  line-height: 1em;
 }
 
 #home-buttons {
@@ -175,7 +183,16 @@ textarea {
   flex-direction: column;
   justify-content: flex-end;
   margin-left: 4em;
+  margin-right: 4em;
   margin-bottom: 5em;
+}
+
+#home-buttons p {
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 0.5em;
+  font-weight: 200;
+  margin-bottom: 1em;
 }
 
 #home-buttons button {
@@ -210,6 +227,30 @@ textarea {
   font-size: 20px;
 }
 
+#sign-up-screen {
+  display: flex;
+  flex-direction: row;
+  background-image: url('/images/sign-up.png');
+  background-position: top;
+  height: 700px;
+}
+
+#sign-up-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 4em;
+  margin-bottom: 5em;
+}
+
+#sign-up-buttons button {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  line-height: 15px;
+  font-size: 20px;
+}
+
 #view-all-menu {
   display: flex;
   flex-direction: row;
@@ -227,7 +268,7 @@ textarea {
 }
 
 #single-moment-description {
-  background-color: f05f6a;
+  background-color: #4285f4;
   color: white;
   font-size: 1.75em;
   text-align: left;
@@ -237,6 +278,13 @@ textarea {
 
 #single-moment-photo {
   width: 70%;
+}
+
+#user-feeling {
+  margin-left: 2em;
+  font-size: 1.2em;
+  font-weight: 200;
+  margin-top: 1em;
 }
 
 #user-moment-container {
@@ -258,7 +306,8 @@ textarea {
 }
 
 #single-moment-content p {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'lato', sans-serif;
+  font-weight: 300;
   font-size: 20px;
   margin-left: 1em;
 }
@@ -268,10 +317,10 @@ textarea {
 }
 
 #edit-delete .edit-button {
-  background-color: lightyellow;
+  background-color: white;
   color: black;
   font-size: 1em;
-  padding: 10px;
+  padding: 5px;
   border: none;
 }
 
@@ -279,7 +328,8 @@ textarea {
   background-color: white;
   color: #f05f6a;
   font-size: 1em;
-  padding: 10px;
+  padding: 5px;
+  border: none;
 }
 
 #moment-preview {
@@ -287,6 +337,12 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+#go-back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #moment-preview p {
@@ -359,6 +415,10 @@ textarea {
   width: 100%;
 }
 
+#view-all {
+  width: 100%;
+}
+
 ul,
 li {
   list-style-type: none;
@@ -388,15 +448,20 @@ li {
 
 #map-single {
   height: 100%;
-  width: 30%;
+  width: 40%;
   display: block;
   margin: 0 auto;
+  border-radius: 15px;
 }
 
 #photo-map {
   display: flex;
   justify-content: center;
   height: 300px;
+}
+
+#photo-map img {
+  border-radius: 15px;
 }
 
 /* Button used to open the chat form - fixed at the bottom of the page */
