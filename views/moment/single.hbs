@@ -40,8 +40,8 @@
     const mapContainerElement = document.getElementById('map-single');
     const map = new window.google.maps.Map(mapContainerElement, {
       center: {
-        lat: 38.75,
-        lng: -9.15
+        lat:  {{ moment.location.coordinates.[0] }},
+        lng: {{ moment.location.coordinates.[1] }}
       },
       zoom: 11
     });
