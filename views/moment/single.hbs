@@ -22,12 +22,13 @@
         <p> {{ moment.location.coordinates.[0] }}</p> --}}
     </div>
 
+            {{#if isMyOwnMyProfile }}
       <div id="edit-delete">
             <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
-
               <form action="/moment/{{ moment.id }}/delete" method="POST"> 
                  <button>Delete Moment</button>
               </form>
+              {{/if}}
       </div>
 
 </div>
