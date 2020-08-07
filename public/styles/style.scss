@@ -52,6 +52,7 @@ nav {
   width: 1.85em;
   height: 1.85em;
   border-radius: 50%;
+  display: inline;
 }
 
 #yellow-bg {
@@ -214,8 +215,9 @@ textarea {
   flex-direction: row;
   justify-content: center;
   line-height: 150px;
-  background-image: url('/images/Screen Shot 2020-08-06 at 11.43.54 PM.png');
+  background-image: url('https://images.unsplash.com/photo-1596467413021-979feb5dc97d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
   background-size: 130%;
+  background-position: center;
   background-repeat: no-repeat;
 }
 #view-all-menu h3 {
@@ -233,6 +235,10 @@ textarea {
   line-height: 60px;
 }
 
+#single-moment-photo {
+  width: 70%;
+}
+
 #user-moment-container {
   display: flex;
   flex-direction: row;
@@ -248,7 +254,17 @@ textarea {
 }
 
 #single-moment-content {
-  background-color: lightyellow;
+  padding: 15px;
+}
+
+#single-moment-content p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  margin-left: 1em;
+}
+
+#edit-delete {
+  width: 100%;
 }
 
 #moment-preview {
@@ -351,7 +367,7 @@ li {
 }
 
 #map-single {
-  height: 41vh;
+  height: 100%;
   width: 30%;
   display: block;
   margin: 0 auto;

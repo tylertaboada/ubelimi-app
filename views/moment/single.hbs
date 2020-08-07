@@ -16,25 +16,19 @@
 
     <div id="single-moment-content">
         {{!-- <h3> {{ user.name }} is feeling {{ moment.feeling }}  </h3> --}}
-        <p>{{ moment.learning }}</p>
-        <p>{{ moment.gratitude }}</p>
+        <p>🧠  {{ moment.learning }}</p>
+        <p>💙  {{ moment.gratitude }}</p>
         {{!-- <p> {{ moment.location.coordinates.[1] }}</p>
         <p> {{ moment.location.coordinates.[0] }}</p> --}}
     </div>
 
+      <div id="edit-delete">
+            <a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
 
-
-</div>
-<div></div>
-
-
-
-
-<a href="/moment/{{ moment.id }}/edit">Edit Moment</a>
-
-<form action="/moment/{{ moment.id }}/delete" method="POST"> 
-   <button>Delete Moment</button>
-</form>
+              <form action="/moment/{{ moment.id }}/delete" method="POST"> 
+                 <button>Delete Moment</button>
+              </form>
+      </div>
 
 </div>
 

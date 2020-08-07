@@ -110,7 +110,13 @@ momentRouter.get('/:id', async (req, res, next) => {
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > DELETE
 
 momentRouter.post('/:id/delete', routeGuard, (req, res, next) => {
-  const id = req.params.id;
+  // let isMyOwnMyProfile = false;
+  // const id = req.params.id;
+  // let user;
+
+  // if (id === req.session.passport.user) {
+  //   isMyOwnMyProfile = true;
+  // }
 
   Moment.findByIdAndDelete(id)
     .then(() => {
