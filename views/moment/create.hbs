@@ -1,42 +1,55 @@
 
 <div class="container"> 
+
+
 <h1>🚀 Create a moment, make history.</h1>
 
-<form method="POST" enctype="multipart/form-data">
 
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > FEELING <- --}}
 
-<select name="feeling">
- <option>How are you feeling in this moment?</option>
- <option type="text"  value="Amused"> Amused </option>
- <option type="text"  value="Anxious"> Anxious </option>
- <option type="text"  value="Brave">  Brave</option>
- <option type="text"  value="Happy">  Happy</option>
- <option type="text"  value="Inspired"> Inspired </option>
- <option type="text"  value="Loved"> Loved </option>
- <option type="text"  value="Relaxed">  Relaxed</option>
- <option type="text"  value="Upset">  Upset</option>
-</select>
+<div class="row bg-light border-0 shadow m-0 p-0">
+  <form method="POST" enctype="multipart/form-data"></form>
+  <div class="col-sm-6  m-0 p-0">
+    <div class="card bg-light">
+     <div class="card-body">
+       {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > FEELING <- --}}
+        <h5 class="card-title">How are you feeling</h5>
+            <select name="feeling">
+             <option type="text"  value="Amused"> Amused </option>
+             <option type="text"  value="Anxious"> Anxious </option>
+             <option type="text"  value="Brave">  Brave</option>
+             <option type="text"  value="Happy">  Happy</option>
+             <option type="text"  value="Inspired"> Inspired </option>
+             <option type="text"  value="Loved"> Loved </option>
+             <option type="text"  value="Relaxed">  Relaxed</option>
+             <option type="text"  value="Upset">  Upset</option>
+            </select>
+          <h5 class="card-text"> 
+          {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > DESCRIPTION <- --}}
 
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > DESCRIPTION <- --}}
-
-  <label for="description-input">Describe the moment in three words:</label>
-  <input id="description-input" type="text" placeholder="Funny, Memorable, Sunset" name="description" minlength="10" maxlength="100">
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION <- --}}
-
-  <p>Where are you?</p>
-  <div>
-  <label for="latitude-input">Latitude</label>
-  <input  id="latitude-input" type="text" placeholder="Latitude" name="latitude">
+  <label for="description-input">Describe the moment in three words:</label> <br>
+  <input id="description-input" type="text" placeholder="Funny, Memorable, Sunset" name="description" minlength="10" maxlength="100"></h5>
+  {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION <- --}}
+ <h5 class="card-text">Where? </h5>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+     </div>
+    </div>
+   </div> 
+  <div class="col-sm-6  m-0 p-0">
+    <div class="card shadow" id="map"> 
+       <label for="latitude-input"></label>
+       <input type="hidden"   id="latitude-input" type="text" placeholder="Latitude" name="latitude">
   
-   <label for="longitude-input">Longitude</label>
-  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
+        <label for="longitude-input"></label>
+        <input  type="hidden"  id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
 
-   <input id="pac-input" class="controls" type="text" placeholder="Locate this Moment"/>
- <input id="place-name" class="controls" type="text" placeholder="Locate this Moment"/>
-    <div id="map" class="shadow"></div>
- </div>
+        <input id="pac-input" class="controls" type="text" placeholder="Locate this Moment"/>
+    
+     </div> 
+   </div>
+</div>
+
+
+
 
 
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LEARNING <- --}}

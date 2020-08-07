@@ -234,7 +234,7 @@ textarea {
   border: none; }
 
 #edit-delete .delete-button {
-  background-color: #white;
+  background-color: white;
   color: #f05f6a;
   font-size: 1em;
   padding: 10px; }
@@ -407,14 +407,10 @@ li {
 
 /* Add styles to search map */
 #map {
-  height: 100%; }
-
-/* Optional: Makes the sample page fill the window. */
-#map {
-  width: 50vw;
-  height: 50vh;
-  display: block;
-  margin: 0 auto; }
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
 
 #description {
   font-family: Roboto;
@@ -455,6 +451,9 @@ li {
 
 .moP {
   margin: 0; }
+
+a {
+  text-decoration: none !important; }
 
 .abt {
   height: 20px;
