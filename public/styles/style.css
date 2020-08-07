@@ -126,10 +126,16 @@ textarea {
   background-repeat: no-repeat;
   height: 150px; }
 
-#profile-menu h3 {
+#profile-menu p {
   color: white;
   margin-top: 1em;
-  line-height: 0.5em; }
+  line-height: 0.5em;
+  font-size: 1.5em;
+  font-family: 'lato', sans-serif;
+  font-weight: 400; }
+
+#navbar-drop {
+  height: 75px; }
 
 #homescreen {
   display: flex;
@@ -177,8 +183,10 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-left: 4em;
-  margin-bottom: 5em; }
+  margin-bottom: 5em;
+  margin-left: 3em;
+  margin-right: 3em;
+  width: 100%; }
 
 #sign-in-buttons button {
   background-color: black;
@@ -186,6 +194,18 @@ textarea {
   border-radius: 20px;
   line-height: 15px;
   font-size: 20px; }
+
+#sign-in-buttons input {
+  line-height: 12px; }
+
+#sign-in-buttons label {
+  color: white; }
+
+#sign-up-buttons input {
+  line-height: 12px; }
+
+#sign-up-buttons label {
+  color: white; }
 
 #sign-up-screen {
   display: flex;
@@ -198,8 +218,10 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-left: 4em;
-  margin-bottom: 5em; }
+  margin-bottom: 5em;
+  margin-left: 3em;
+  margin-right: 3em;
+  width: 100%; }
 
 #sign-up-buttons button {
   background-color: black;
@@ -223,6 +245,28 @@ textarea {
   display: block;
   text-align: center; }
 
+#main-ubelimi {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 30%; }
+
+#main-ubelimi p {
+  color: black;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px; }
+
+#main-ubelimi a {
+  color: white;
+  background-color: black;
+  padding: 10px;
+  font-size: 1.5em;
+  border-radius: 15px;
+  text-align: center; }
+
 #single-moment-description {
   background-color: #4285f4;
   color: white;
@@ -243,9 +287,9 @@ textarea {
 #user-moment-container {
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: lightyellow;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  background-color: rgba(255, 255, 224, 0.557);
   border-radius: 15px;
   height: 225px; }
 
@@ -296,8 +340,10 @@ textarea {
   display: flex;
   justify-content: center;
   color: white;
-  background-color: #f05f6a;
-  margin-top: 20px; }
+  background-color: #4285f4;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 30px; }
 
 #user-moment-container img {
   height: 50;
@@ -467,9 +513,13 @@ li {
 /* Add styles to search map */
 #map {
   width: 100%;
-  height: 100%;
+  height: 500px;
   margin: 0;
   padding: 0; }
+
+@media screen and (max-width: 720px) {
+  #map {
+    height: 300px; } }
 
 #description {
   font-family: Roboto;
