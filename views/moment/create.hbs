@@ -1,3 +1,5 @@
+
+<div class="container"> 
 <h1>🚀 Create a moment, make history.</h1>
 
 <form method="POST" enctype="multipart/form-data">
@@ -24,23 +26,111 @@
 {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LOCATION <- --}}
 
   <p>Where are you?</p>
+  <div>
   <label for="latitude-input">Latitude</label>
-  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
+  <input  id="latitude-input" type="text" placeholder="Latitude" name="latitude">
   
    <label for="longitude-input">Longitude</label>
   <input id="longitude-input" type="text" placeholder="Longitude" name="longitude"> 
-<div id="map-container"></div>  
+
+   <input id="pac-input" class="controls" type="text" placeholder="Locate this Moment"/>
+ <input id="place-name" class="controls" type="text" placeholder="Locate this Moment"/>
+    <div id="map" class="shadow"></div>
+ </div>
+
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LEARNING <- --}}
+
+  <label for="learning-input">What did you learn in this moment?</label>
+  <input id="learning-input" type="text" placeholder="I learned to dust off my ass and keep moving." name="learning">
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > GRATITUDE <- --}}
+
+  <label for="gratitude-input">What are you grateful for in this moment?</label>
+  <input id="gratitude-input" type="text" placeholder="I am grateful for this moment!" name="gratitude">
+
+{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE <- --}}
+  <div>
+  <p>Capture the moment:</p>
+  <input type="file" name="photo">
+</div>
+  
+
+  <button>Ubelimi</button>
+</form>
+
+</div>
+
+
 
 <script>
-  function init () {
-    const mapContainerElement = document.getElementById('map-container');
-    const map = new window.google.maps.Map(mapContainerElement, {
-      center: {
-        lat: 38.75,
-        lng: -9.15
-      },
-      zoom: 11
+
+ function init() {
+   const map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 38.75, lng: -9.15 },
+    zoom: 11,
+    mapTypeId: "roadmap"
     });
+    // Create the search box and link it to the UI element.
+    const latitudeInputElement = document.getElementById('latitude-input');
+    const longitudeInputElement = document.getElementById('longitude-input');
+    const input = document.getElementById("pac-input");
+     const input = document.getElementById("place-name");
+    const searchBox = new google.maps.places.SearchBox(input);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener("bounds_changed", () => {
+      searchBox.setBounds(map.getBounds());
+    });
+    let markers = [];
+    // Listen for the event fired when the user selects a prediction and retrieve
+     // more details for that place.
+   searchBox.addListener("places_changed", () => {
+    const places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+      return;
+    }
+    // Clear out the old markers.
+    markers.forEach(marker => {
+      marker.setMap(null);
+    });
+    markers = [];
+     // For each place, get the icon, name and location.
+     const bounds = new google.maps.LatLngBounds();
+     places.forEach(place => {
+      if (!place.geometry) {
+        console.log("Returned place contains no geometry");
+        return;
+      }
+      const icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
+      // Create a marker for each place.
+      markers.push(
+        new google.maps.Marker({
+          map,
+          icon,
+          title: place.name,
+          position: place.geometry.location
+        })
+      );
+
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+    });
+ }
+  /*
     let marker;
     const latitudeInputElement = document.getElementById('latitude-input');
     const longitudeInputElement = document.getElementById('longitude-input');
@@ -60,25 +150,8 @@
       latitudeInputElement.value = latitude;
       longitudeInputElement.value = longitude;
     });
-  }
+ */
+  
 </script>
 
 {{> mapscript}}
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > LEARNING <- --}}
-
-  <label for="learning-input">What did you learn in this moment?</label>
-  <input id="learning-input" type="text" placeholder="I learned to dust off my ass and keep moving." name="learning">
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > GRATITUDE <- --}}
-
-  <label for="gratitude-input">What are you grateful for in this moment?</label>
-  <input id="gratitude-input" type="text" placeholder="I am grateful for this moment!" name="gratitude">
-
-{{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - > IMAGE <- --}}
-  <p>Capture the moment:</p>
-  <input type="file" name="photo">
-
-  <button>Ubelimi</button>
-</form>
-
