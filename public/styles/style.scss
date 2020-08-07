@@ -535,17 +535,11 @@ li {
 }
 
 /* Add styles to search map */
-
 #map {
+  width: 100%;
   height: 100%;
-}
-
-/* Optional: Makes the sample page fill the window. */
-#map {
-  width: 50vw;
-  height: 50vh;
-  display: block;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
 }
 
 #description {
@@ -595,6 +589,10 @@ li {
 
 .moP {
   margin: 0;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 .abt {
