@@ -6,13 +6,10 @@
       </div>
         
       <div class="buttons"> {{!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -> buttons <- --}}
-        <p>Welcome, {{ user.name }}.</p>
+        <p>Welcome, {{ user.name }}. Today is a good day.</p>
         <section class="menu">
           {{#if isMyOwnMyProfile}}
-          <a href="/moment/create">Create Moment</a>
-          <a href="/profile/edit">Update Profile</a><br>
-          <a href="/moment/view-all">View All Moments</a>
-          <a href="/profile/placeholder">Show more</a>
+          <a href="/profile/edit">✎ Edit Profile</a>
         </section>
         {{/if}}
       </div>
