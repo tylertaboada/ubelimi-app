@@ -35,7 +35,9 @@ nav {
   margin-right: 1em !important; }
 
 .profile-pic-nav {
-  width: 30px; }
+  width: 1.85em;
+  height: 1.85em;
+  border-radius: 50%; }
 
 #yellow-bg {
   background-color: yellow;
@@ -131,8 +133,9 @@ textarea {
 #homescreen {
   display: flex;
   flex-direction: row;
-  background-image: url("https://images.unsplash.com/photo-1491609154219-ffd3ffafd992?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
-  height: 750px; }
+  background-image: url("/images/ubelimi_main.jpeg");
+  background-position: center;
+  height: 700px; }
 
 #homescreen h1 {
   color: black;
@@ -141,10 +144,32 @@ textarea {
 #home-buttons {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 70%; }
+  justify-content: flex-end;
+  margin-left: 4em;
+  margin-bottom: 5em; }
 
 #home-buttons button {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  line-height: 15px;
+  font-size: 20px; }
+
+#sign-in-screen {
+  display: flex;
+  flex-direction: row;
+  background-image: url("/images/sign-in.png");
+  background-position: bottom;
+  height: 700px; }
+
+#sign-in-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 4em;
+  margin-bottom: 5em; }
+
+#sign-in-buttons button {
   background-color: black;
   color: white;
   border-radius: 20px;
@@ -154,9 +179,11 @@ textarea {
 #view-all-menu {
   display: flex;
   flex-direction: row;
-  background-image: url("https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
-  background-repeat: no-repeat;
-  height: 150px; }
+  justify-content: center;
+  line-height: 150px;
+  background-image: url("/images/Screen Shot 2020-08-06 at 11.43.54 PM.png");
+  background-size: 130%;
+  background-repeat: no-repeat; }
 
 #view-all-menu h3 {
   color: white;
@@ -177,11 +204,11 @@ textarea {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: lightyellow;
-  border-radius: 15px; }
+  border-radius: 15px;
+  height: 225px; }
 
-#single-moment-photo {
-  width: 75%;
-  height: 300px; }
+#user-moment-container img {
+  height: 225px; }
 
 #single-moment-content {
   background-color: lightyellow; }
@@ -246,8 +273,11 @@ textarea {
 .profile {
   width: 100%; }
 
-ul {
-  list-style-type: none; }
+ul,
+li {
+  list-style-type: none;
+  margin: 0 10px;
+  line-height: 1; }
 
 #map-container {
   height: 50vh;
