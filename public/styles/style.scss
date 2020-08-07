@@ -339,8 +339,11 @@ textarea {
   width: 100%;
 }
 
-ul {
+ul,
+li {
   list-style-type: none;
+  margin: 0 10px;
+  line-height: 1;
 }
 
 #map-container {
@@ -516,6 +519,7 @@ ul {
   flex-direction: column;
   margin: 50px 100px;
 }
+
 .abt {
   height: 40px;
   background-color: red;

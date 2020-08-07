@@ -2,25 +2,27 @@
 <h2>{{error.status}}</h2>
 <pre>{{error.stack}}</pre> --}}
 
-<div class="container" id="jokes">
+<div class="container bg-dark text-dark d-flex justify-content-center m-0" style="height: 400px;" style="width: 42rem;" id="jokes">
 
-  <div class="card" style="width: 40rem;">
+  <div class="card bg-light" style="width: 40rem;">
     <div class="card-header">
-     <h3>  Ooops! There was an ERROR!.</h3> 
+    
     
       {{#if user }}
-           <h6>While you are here, Click Ubelimi or Explore!</h6>
+       <h3> Hello {{ user.name }}</h3> 
+         
           {{else}}
+           <h3>  Ooops! There was an ERROR!.</h3> 
            <h6>While you are here, Click Ubelimi or Home!</h6>
           {{/if }}
   </div>
-  <div class="card-body">
+  <div class="card-body bg-light">
     <h5 class="card-title joke"> {{joke}} </h5>
     <a href="/error" class="btn btn-primary">Ubelimi?</a> 
           {{#if user }}
            <a href="/moment/view-all" class="btn btn-success">Explore</a>
           {{else}}
-          <a href="/" class="btn btn-primary">Home</a>
+          <a href="/" class="btn btn-primary ">Home</a>
           {{/if }}
   </div>
 </div>
