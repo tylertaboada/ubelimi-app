@@ -21,15 +21,6 @@ const upload = multer({ storage });
 
 momentRouter.post('/create', routeGuard, upload.single('photo'), (req, res, next) => {
   const { feeling, description, learning, gratitude, latitude, longitude } = req.body;
-  console.log(
-    feeling,
-    description,
-    learning,
-    gratitude,
-    latitude,
-    longitude,
-    req.session.passport.user
-  );
   let url;
   if (req.file) {
     url = req.file.path;
@@ -69,9 +60,7 @@ momentRouter.get('/view-all', (req, res, next) => {
 const metersToDegrees = meters => (meters / 1000 / 40000) * 360;
 
 momentRouter.get('/search', (req, res, next) => {
-  const latitude = req.query.latitude;
-  const longitude = req.query.longitude;
-  const radius = req.query.radius;
+  const { latitude, longitude, radius } = req.query;
   Moment.find()
     .where('location')
     .within()
@@ -95,12 +84,7 @@ momentRouter.get('/:id', async (req, res, next) => {
   try {
     const moment = await Moment.findById(id).populate('creator');
     if (moment) {
-      let isMyOwnMyProfile = false;
-
-      if (moment.creator._id == req.session.passport.user) {
-        isMyOwnMyProfile = true;
-      }
-
+      let isMyOwnMyProfile = moment.creator._id === req.session.passport.user;
       res.render('moment/single', { moment: moment, isMyOwnMyProfile });
     } else {
       next();
@@ -147,30 +131,18 @@ momentRouter.get('/:id/edit', (req, res, next) => {
 momentRouter.post('/:id/edit', routeGuard, upload.single('photo'), (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
-  console.log(data);
-  let editedMoment;
+  let editedMoment = {
+    feeling: data.feeling,
+    description: data.description,
+    learning: data.learning,
+    gratitude: data.gratitude,
+    location: { coordinates: [data.latitude, data.longitude] }
+  };
 
   if (req.file) {
     //there is an image
     //create a new object with the information
-    editedMoment = {
-      feeling: data.feeling,
-      description: data.description,
-      learning: data.learning,
-      gratitude: data.gratitude,
-      photo: req.file.path,
-      location: { coordinates: [data.latitude, data.longitude] }
-    };
-  } else {
-    //there is no image
-    //create a new object with the information without the image
-    editedMoment = {
-      feeling: data.feeling,
-      description: data.description,
-      learning: data.learning,
-      gratitude: data.gratitude,
-      location: { coordinates: [data.latitude, data.longitude] }
-    };
+    editedMoment.photo = req.file.path;
   }
 
   Moment.findByIdAndUpdate(id, editedMoment)
